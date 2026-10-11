@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#05060f">
   <meta name="description" content="Luna Guard — เครื่องมือสแกนมัลแวร์ตามคำสั่ง พร้อมข้อมูลภัยคุกคามหลายชั้นและรายงานที่โปร่งใส">
   <meta property="og:type" content="website">
@@ -18,6 +18,7 @@
   <meta name="twitter:title" content="Luna Guard — Security, made visible">
   <meta name="twitter:description" content="On-demand malware scanning with transparent findings and user-controlled actions.">
   <meta name="twitter:image" content="https://luna-guard-website.vercel.app/assets/luna-guard-preview.png">
+  <script>document.documentElement.classList.add('js-enabled', 'site-loading'); window.setTimeout(() => { document.documentElement.classList.remove('site-loading'); document.querySelector('[data-site-loader]')?.remove(); }, 8000);</script>
   <title>Luna Guard — Security, made visible</title>
   <link rel="icon" href="assets/Luna_Guard.ico" sizes="any">
   <link rel="preload" as="image" href="assets/Luna_Guard.png">
@@ -25,6 +26,20 @@
   <script src="app.js" defer></script>
 </head>
 <body>
+  <div class="site-loader" data-site-loader role="status" aria-live="polite" aria-label="Loading Luna Guard">
+    <div class="loader-content">
+      <div class="loader-emblem" aria-hidden="true">
+        <span class="loader-orbit loader-orbit-a"></span><span class="loader-orbit loader-orbit-b"></span>
+        <span class="loader-scan"></span><img src="assets/Luna_Guard.png" alt="" width="104" height="104">
+      </div>
+      <div class="loader-wordmark">LUNA <span>GUARD</span></div>
+      <p>SECURITY, MADE VISIBLE</p>
+      <div class="loader-progress" aria-hidden="true"><span></span></div>
+      <small>INITIALIZING EXPERIENCE</small>
+    </div>
+    <div class="loader-corner loader-corner-a" aria-hidden="true">LG / 01</div>
+    <div class="loader-corner loader-corner-b" aria-hidden="true">LOCAL · TRUSTED · CLEAR</div>
+  </div>
   <a class="skip-link" href="#main" data-i18n="skip">ข้ามไปยังเนื้อหา</a>
   <div class="ambient" aria-hidden="true"></div>
 

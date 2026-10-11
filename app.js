@@ -124,6 +124,30 @@ navigation?.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const pointerCanTilt = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const siteLoader = document.querySelector('[data-site-loader]');
+if (siteLoader) {
+  const loaderStartedAt = performance.now();
+  let loaderFinished = false;
+  const finishLoader = () => {
+    if (loaderFinished) return;
+    loaderFinished = true;
+    const minimumShowTime = prefersReducedMotion ? 0 : 1450;
+    const wait = Math.max(0, minimumShowTime - (performance.now() - loaderStartedAt));
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('site-loading');
+      if (!prefersReducedMotion) document.documentElement.classList.add('site-entry-start');
+      siteLoader.classList.add('is-leaving');
+      window.setTimeout(() => siteLoader.remove(), prefersReducedMotion ? 0 : 720);
+    }, wait);
+  };
+
+  if (prefersReducedMotion) {
+    finishLoader();
+  } else {
+    window.addEventListener('load', finishLoader, { once: true });
+    window.setTimeout(finishLoader, 5200);
+  }
+}
 const interactiveVisual = document.querySelector('[data-interactive-visual]');
 const tiltCard = document.querySelector('[data-tilt-card]');
 
