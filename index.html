@@ -6,9 +6,18 @@
   <meta name="theme-color" content="#05060f">
   <meta name="description" content="Luna Guard — เครื่องมือสแกนมัลแวร์ตามคำสั่ง พร้อมข้อมูลภัยคุกคามหลายชั้นและรายงานที่โปร่งใส">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luna Guard">
+  <meta property="og:url" content="https://luna-guard-website.vercel.app/">
   <meta property="og:title" content="Luna Guard — Security, made visible">
   <meta property="og:description" content="สแกนไฟล์ตามคำสั่ง ตรวจสอบผลได้ และจัดการภัยคุกคามด้วยตัวคุณเอง">
-  <meta property="og:image" content="assets/Luna_Guard.png">
+  <meta property="og:image" content="https://luna-guard-website.vercel.app/assets/luna-guard-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Luna Guard — Security, made visible. On-demand malware scanning with transparent findings and user-controlled actions.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luna Guard — Security, made visible">
+  <meta name="twitter:description" content="On-demand malware scanning with transparent findings and user-controlled actions.">
+  <meta name="twitter:image" content="https://luna-guard-website.vercel.app/assets/luna-guard-preview.png">
   <title>Luna Guard — Security, made visible</title>
   <link rel="icon" href="assets/Luna_Guard.ico" sizes="any">
   <link rel="preload" as="image" href="assets/Luna_Guard.png">
@@ -129,8 +138,8 @@
         <p data-i18n="privacyBody">Luna Guard วิเคราะห์ไฟล์ในเครื่อง ไม่อัปโหลดไฟล์ที่สแกนหรือประวัติการสแกน การอัปเดตฐานข้อมูลจะเชื่อมต่อกับผู้ให้บริการ threat intelligence ที่ระบุไว้</p>
         <a class="text-link" href="https://github.com/Aomtana0070/Luna-Guard#threat-data-sources-and-privacy" target="_blank" rel="noopener noreferrer"><span data-i18n="privacyLink">ดูข้อมูลและความเป็นส่วนตัว</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5"/></svg></a>
       </div>
-      <div class="privacy-visual glass-card">
-        <div class="privacy-orb" aria-hidden="true"><svg viewBox="0 0 112 112"><path d="M56 12 91 25v24c0 24-15 40-35 51C36 89 21 73 21 49V25l35-13Z"/><path d="m40 55 11 11 22-24"/></svg></div>
+      <div class="privacy-visual glass-card" data-pointer-glow>
+        <div class="privacy-orb" aria-hidden="true"><svg class="shield-meter" viewBox="0 0 112 112"><circle class="meter-track" cx="56" cy="56" r="49"/><circle class="meter-fill" cx="56" cy="56" r="49"/><path class="shield-outline" d="M56 12 91 25v24c0 24-15 40-35 51C36 89 21 73 21 49V25l35-13Z"/><path class="shield-check" d="m40 55 11 11 22-24"/></svg></div>
         <div class="privacy-facts"><div><span class="fact-dot"></span><span data-i18n="privacyFact1">สแกนและวิเคราะห์ในเครื่อง</span><b>LOCAL</b></div><div><span class="fact-dot"></span><span data-i18n="privacyFact2">ไม่ส่งไฟล์ขึ้น cloud</span><b>PRIVATE</b></div><div><span class="fact-dot"></span><span data-i18n="privacyFact3">เชื่อมต่อเฉพาะตอนอัปเดต feed</span><b>EXPLICIT</b></div></div>
         <div class="privacy-caption" data-i18n="privacyCaption">PRIVACY BY DESIGN</div>
       </div>
@@ -138,7 +147,7 @@
 
     <section class="section limits-section" id="transparency">
       <div class="section-wrap">
-        <div class="limits-panel glass-card">
+        <div class="limits-panel glass-card" data-hover-light>
           <div class="limits-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2M12 16.5v.1"/></svg></div>
           <div class="limits-content">
             <div class="eyebrow eyebrow-left"><span data-i18n="limitsEyebrow">HONEST BY DESIGN</span></div>
@@ -157,9 +166,9 @@
     </section>
 
     <section class="section section-wrap community-section">
-      <div class="community-card glass-card">
+      <div class="community-card glass-card" data-hover-light>
         <div class="community-content"><div class="eyebrow eyebrow-left"><span data-i18n="communityEyebrow">STAY IN THE LOOP</span></div><h2 data-i18n="communityTitle">ร่วมสร้าง Luna Guard ไปด้วยกัน</h2><p data-i18n="communityBody">ดูซอร์สโค้ด ติดตามการอัปเดต หรือพูดคุยกับชุมชนของเรา</p><div class="community-actions"><a class="button button-primary" href="https://github.com/Aomtana0070/Luna-Guard/releases" target="_blank" rel="noopener noreferrer"><span data-i18n="communityDownload">ดู Releases</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5"/></svg></a><a class="button button-ghost discord-button" href="https://discord.gg/vRKVCegUpF" target="_blank" rel="noopener noreferrer"><svg class="discord-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.7 5.3A18 18 0 0 0 15.2 4l-.6 1.2a16.5 16.5 0 0 0-5.2 0L8.8 4a18 18 0 0 0-4.5 1.3C1.5 9.5.7 13.6 1.1 17.7a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.7 11.7 0 0 1-1.9-.9l.5-.4a13 13 0 0 0 11.2 0l.5.4a11.7 11.7 0 0 1-1.9.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.8-.8-8.8-3.2-12.4ZM8.8 14.6c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Zm6.4 0c-1 0-1.8-.9-1.8-2s.8-2 1.8-2 1.8.9 1.8 2-.8 2-1.8 2Z"/></svg><span data-i18n="communityDiscord">เข้าร่วม Discord</span><span class="invite-arrow" aria-hidden="true">&#8599;</span></a></div></div>
-          <div class="community-mark" aria-hidden="true"><img src="assets/Luna_Guard.png" alt="" width="180" height="180"><span class="mark-ring ring-a"></span><span class="mark-ring ring-b"></span></div>
+          <div class="community-mark" aria-hidden="true" data-logo-interactive><img src="assets/Luna_Guard.png" alt="" width="180" height="180"><span class="mark-ring ring-a"></span><span class="mark-ring ring-b"></span></div>
       </div>
     </section>
   </main>

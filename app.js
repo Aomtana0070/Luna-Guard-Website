@@ -127,6 +127,47 @@ const pointerCanTilt = window.matchMedia('(hover: hover) and (pointer: fine)').m
 const interactiveVisual = document.querySelector('[data-interactive-visual]');
 const tiltCard = document.querySelector('[data-tilt-card]');
 
+// The hero title reacts directly to the pointer instead of relying on a passive float.
+const heroTitle = document.querySelector('.hero h1');
+if (heroTitle && pointerCanTilt && !prefersReducedMotion) {
+  let titleFrame = 0;
+  let rippleTimer;
+  heroTitle.classList.add('is-pointer-aware');
+  heroTitle.addEventListener('pointermove', (event) => {
+    if (titleFrame) return;
+    titleFrame = requestAnimationFrame(() => {
+      titleFrame = 0;
+      const bounds = heroTitle.getBoundingClientRect();
+      const x = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+      const y = Math.max(0, Math.min(1, (event.clientY - bounds.top) / bounds.height));
+      heroTitle.style.setProperty('--title-tilt-x', `${((0.5 - y) * 7).toFixed(2)}deg`);
+      heroTitle.style.setProperty('--title-tilt-y', `${((x - 0.5) * 9).toFixed(2)}deg`);
+      heroTitle.style.setProperty('--title-glow-x', `${(x * 100).toFixed(1)}%`);
+      heroTitle.style.setProperty('--title-glow-y', `${(y * 100).toFixed(1)}%`);
+    });
+  });
+  heroTitle.addEventListener('pointerdown', (event) => {
+    const bounds = heroTitle.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'title-ripple';
+    ripple.setAttribute('aria-hidden', 'true');
+    ripple.style.left = `${event.clientX - bounds.left}px`;
+    ripple.style.top = `${event.clientY - bounds.top}px`;
+    heroTitle.append(ripple);
+    window.setTimeout(() => ripple.remove(), 850);
+    heroTitle.classList.add('is-title-pressed');
+    window.clearTimeout(rippleTimer);
+    rippleTimer = window.setTimeout(() => heroTitle.classList.remove('is-title-pressed'), 420);
+  });
+  heroTitle.addEventListener('pointerleave', () => {
+    heroTitle.style.setProperty('--title-tilt-x', '0deg');
+    heroTitle.style.setProperty('--title-tilt-y', '0deg');
+    heroTitle.style.setProperty('--title-glow-x', '50%');
+    heroTitle.style.setProperty('--title-glow-y', '35%');
+    heroTitle.classList.remove('is-title-pressed');
+  });
+}
+
 if (interactiveVisual && tiltCard && pointerCanTilt && !prefersReducedMotion) {
   let pressTimer;
   interactiveVisual.addEventListener('pointermove', (event) => {
@@ -156,6 +197,76 @@ if (interactiveVisual && tiltCard && pointerCanTilt && !prefersReducedMotion) {
   });
 }
 
+const privacyVisual = document.querySelector('[data-pointer-glow]');
+if (privacyVisual && pointerCanTilt && !prefersReducedMotion) {
+  let pointerFrame = 0;
+  privacyVisual.addEventListener('pointermove', (event) => {
+    if (pointerFrame) return;
+    pointerFrame = requestAnimationFrame(() => {
+      pointerFrame = 0;
+      const bounds = privacyVisual.getBoundingClientRect();
+      const x = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+      const y = Math.max(0, Math.min(1, (event.clientY - bounds.top) / bounds.height));
+      privacyVisual.style.setProperty('--glow-x', `${(x * 100).toFixed(1)}%`);
+      privacyVisual.style.setProperty('--glow-y', `${(y * 100).toFixed(1)}%`);
+      privacyVisual.style.setProperty('--privacy-tilt-x', `${((0.5 - y) * 3).toFixed(2)}deg`);
+      privacyVisual.style.setProperty('--privacy-tilt-y', `${((x - 0.5) * 4).toFixed(2)}deg`);
+    });
+  });
+  privacyVisual.addEventListener('pointerleave', () => {
+    privacyVisual.style.setProperty('--privacy-tilt-x', '0deg');
+    privacyVisual.style.setProperty('--privacy-tilt-y', '0deg');
+  });
+}
+
+// Soft pointer light and a restrained 3D lean make the quiet information panels feel tactile.
+if (pointerCanTilt && !prefersReducedMotion) {
+  document.querySelectorAll('[data-hover-light]').forEach((panel) => {
+    let frame = 0;
+    panel.addEventListener('pointermove', (event) => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const bounds = panel.getBoundingClientRect();
+        const x = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+        const y = Math.max(0, Math.min(1, (event.clientY - bounds.top) / bounds.height));
+        panel.style.setProperty('--light-x', `${(x * 100).toFixed(1)}%`);
+        panel.style.setProperty('--light-y', `${(y * 100).toFixed(1)}%`);
+        panel.style.setProperty('--card-tilt-x', `${((0.5 - y) * 1.6).toFixed(2)}deg`);
+        panel.style.setProperty('--card-tilt-y', `${((x - 0.5) * 2).toFixed(2)}deg`);
+      });
+    });
+    panel.addEventListener('pointerleave', () => {
+      panel.style.setProperty('--card-tilt-x', '0deg');
+      panel.style.setProperty('--card-tilt-y', '0deg');
+    });
+  });
+
+  document.querySelectorAll('[data-logo-interactive]').forEach((logo) => {
+    let clickTimer;
+    logo.addEventListener('pointermove', (event) => {
+      const bounds = logo.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width;
+      const y = (event.clientY - bounds.top) / bounds.height;
+      logo.style.setProperty('--logo-tilt-x', `${((0.5 - y) * 10).toFixed(2)}deg`);
+      logo.style.setProperty('--logo-tilt-y', `${((x - 0.5) * 12).toFixed(2)}deg`);
+      logo.style.setProperty('--logo-glint-x', `${(x * 100).toFixed(1)}%`);
+      logo.style.setProperty('--logo-glint-y', `${(y * 100).toFixed(1)}%`);
+    });
+    logo.addEventListener('pointerdown', () => {
+      logo.classList.remove('is-tapped');
+      requestAnimationFrame(() => logo.classList.add('is-tapped'));
+      window.clearTimeout(clickTimer);
+      clickTimer = window.setTimeout(() => logo.classList.remove('is-tapped'), 760);
+    });
+    logo.addEventListener('pointerleave', () => {
+      logo.style.setProperty('--logo-tilt-x', '0deg');
+      logo.style.setProperty('--logo-tilt-y', '0deg');
+      logo.classList.remove('is-tapped');
+    });
+  });
+}
+
 const revealTargets = document.querySelectorAll(
   '.hero-copy, .hero-art, .trust-inner, .section-heading, .feature-card, .scan-card, .scan-footnote, .privacy-copy, .privacy-visual, .limits-panel, .community-card, .footer-inner'
 );
@@ -173,4 +284,25 @@ if (revealTargets.length && !prefersReducedMotion && 'IntersectionObserver' in w
   revealTargets.forEach((element) => revealObserver.observe(element));
 } else {
   revealTargets.forEach((element) => element.classList.add('is-visible'));
+}
+
+// Reveal copy as it enters view without splitting translated text into fragile character spans.
+const textRevealTargets = document.querySelectorAll(
+  '.hero h1 > span, .hero-description, .hero-actions > *, .hero-note, .trust-inner > *, .eyebrow span, .micro-label, .section-heading h2, .section-heading p, .scan-heading h2, .feature-card h3, .feature-card p, .feature-meta, .scan-card h3, .scan-card > p, .scan-card li, .scan-footnote, .privacy-copy h2 > span, .privacy-copy > p, .privacy-copy .text-link, .privacy-facts > div, .limits-content h2, .limits-content > p, .limit-list > div, .limits-content .text-link, .community-content h2, .community-content > p, .community-actions > *, .footer-inner > *'
+);
+
+if (textRevealTargets.length && !prefersReducedMotion && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('has-text-reveal');
+  textRevealTargets.forEach((element, index) => {
+    element.setAttribute('data-text-reveal', '');
+    element.style.setProperty('--text-delay', `${Math.min(index % 4, 3) * 55}ms`);
+  });
+  const textObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-text-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.16, rootMargin: '0px 0px -5% 0px' });
+  textRevealTargets.forEach((element) => textObserver.observe(element));
 }
