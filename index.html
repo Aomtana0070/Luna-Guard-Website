@@ -18,7 +18,20 @@
   <meta name="twitter:title" content="Luna Guard — Security, made visible">
   <meta name="twitter:description" content="On-demand malware scanning with transparent findings and user-controlled actions.">
   <meta name="twitter:image" content="https://luna-guard-website.vercel.app/assets/luna-guard-preview.png">
-  <script>document.documentElement.classList.add('js-enabled', 'site-loading'); window.setTimeout(() => { document.documentElement.classList.remove('site-loading'); document.querySelector('[data-site-loader]')?.remove(); }, 8000);</script>
+  <script>
+    document.documentElement.classList.add('js-enabled', 'site-loading');
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    const resetToTop = () => {
+      if (location.hash) return;
+      const root = document.documentElement;
+      const previousBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      requestAnimationFrame(() => { root.style.scrollBehavior = previousBehavior; });
+    };
+    window.addEventListener('pageshow', resetToTop);
+    window.setTimeout(() => { document.documentElement.classList.remove('site-loading'); document.querySelector('[data-site-loader]')?.remove(); }, 8000);
+  </script>
   <title>Luna Guard — Security, made visible</title>
   <link rel="icon" href="assets/Luna_Guard.ico" sizes="any">
   <link rel="preload" as="image" href="assets/Luna_Guard.png">
