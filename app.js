@@ -124,9 +124,9 @@ navigation?.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const pointerCanTilt = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+const visualViewport = window.visualViewport;
 const siteLoader = document.querySelector('[data-site-loader]');
 if (siteLoader) {
-  const visualViewport = window.visualViewport;
   const syncLoaderViewport = () => {
     if (!visualViewport) return;
     siteLoader.style.left = `${visualViewport.offsetLeft}px`;
