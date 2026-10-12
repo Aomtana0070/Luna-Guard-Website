@@ -226,7 +226,7 @@ button, a, select { -webkit-tap-highlight-color: transparent; }
   .footer-inner > p { flex-basis: 35%; }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px), (hover: none) and (pointer: coarse) and (max-device-width: 700px) {
   .section-wrap, .header-inner, .footer-inner, .trust-inner { width: min(560px, calc(100% - 32px)); max-width: calc(100% - 32px); margin-inline: auto; }
   .header-inner { min-height: 66px; }
   .brand img { width: 38px; height: 38px; }
@@ -432,7 +432,7 @@ html[lang="th"] .section-heading h2, html[lang="th"] .privacy-copy h2, html[lang
   .feature-card, .scan-card, .community-card, .limits-panel { transition: transform 320ms cubic-bezier(.2,.7,.25,1), border-color 280ms ease, box-shadow 320ms ease; }
   .feature-card:hover, .scan-card:hover, .has-reveal .feature-card.is-visible:hover, .has-reveal .scan-card.is-visible:hover { transform: translateY(-5px) scale(1.008); box-shadow: inset 0 1px rgba(216,236,248,.16), 0 28px 70px rgba(0,0,0,.38); }
 }
-@media (max-width: 700px) {
+@media (max-width: 700px), (hover: none) and (pointer: coarse) and (max-device-width: 700px) {
   .github-preview { left: auto; right: -12px; transform-origin: 85% 100%; }
   .github-preview::after { left: auto; right: 34px; }
   .scan-window[data-tilt-card] { transform: none; }
@@ -731,7 +731,7 @@ html.site-loading { overflow: hidden; }
 @keyframes entry-copy { from { opacity: 0; translate: -28px 12px; filter: blur(8px); } to { opacity: 1; translate: 0 0; filter: blur(0); } }
 @keyframes entry-art { from { opacity: 0; transform: perspective(1200px) translate3d(28px,20px,-30px) rotateY(-8deg) scale(.96); filter: blur(8px); } to { opacity: 1; transform: perspective(1200px) translate3d(0,0,0) rotateY(0) scale(1); filter: blur(0); } }
 @keyframes entry-trust { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
-@media (max-width: 700px) {
+@media (max-width: 700px), (hover: none) and (pointer: coarse) and (max-device-width: 700px) {
   .loader-emblem { width: 148px; height: 148px; margin-bottom: 20px; }
   .loader-emblem img { width: 90px; height: 90px; }
   .loader-scan { width: 98px; }
@@ -794,7 +794,7 @@ html.site-loading { overflow: hidden; }
 }
 
 /* Small screens and notched phones: safe-area spacing and reliable tap targets. */
-@media (max-width: 700px) {
+@media (max-width: 700px), (hover: none) and (pointer: coarse) and (max-device-width: 700px) {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .header-inner { padding-top: env(safe-area-inset-top, 0px); }
   .menu-toggle { width: 44px; height: 44px; }

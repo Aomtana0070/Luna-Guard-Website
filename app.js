@@ -126,6 +126,19 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 const pointerCanTilt = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const siteLoader = document.querySelector('[data-site-loader]');
 if (siteLoader) {
+  const visualViewport = window.visualViewport;
+  const syncLoaderViewport = () => {
+    if (!visualViewport) return;
+    siteLoader.style.left = `${visualViewport.offsetLeft}px`;
+    siteLoader.style.top = `${visualViewport.offsetTop}px`;
+    siteLoader.style.width = `${visualViewport.width}px`;
+    siteLoader.style.height = `${visualViewport.height}px`;
+  };
+  if (visualViewport) {
+    syncLoaderViewport();
+    visualViewport.addEventListener('resize', syncLoaderViewport);
+    visualViewport.addEventListener('scroll', syncLoaderViewport);
+  }
   const loaderStartedAt = performance.now();
   let loaderFinished = false;
   const finishLoader = () => {
@@ -137,7 +150,11 @@ if (siteLoader) {
       document.documentElement.classList.remove('site-loading');
       if (!prefersReducedMotion) document.documentElement.classList.add('site-entry-start');
       siteLoader.classList.add('is-leaving');
-      window.setTimeout(() => siteLoader.remove(), prefersReducedMotion ? 0 : 720);
+      window.setTimeout(() => {
+        visualViewport?.removeEventListener('resize', syncLoaderViewport);
+        visualViewport?.removeEventListener('scroll', syncLoaderViewport);
+        siteLoader.remove();
+      }, prefersReducedMotion ? 0 : 720);
     }, wait);
   };
 
