@@ -227,7 +227,7 @@ button, a, select { -webkit-tap-highlight-color: transparent; }
 }
 
 @media (max-width: 700px) {
-  .section-wrap, .header-inner, .footer-inner, .trust-inner { width: min(100% - 32px, 560px); }
+  .section-wrap, .header-inner, .footer-inner, .trust-inner { width: min(560px, calc(100% - 32px)); max-width: calc(100% - 32px); margin-inline: auto; }
   .header-inner { min-height: 66px; }
   .brand img { width: 38px; height: 38px; }
   .brand-copy strong { font-size: 14px; }
@@ -297,8 +297,8 @@ button, a, select { -webkit-tap-highlight-color: transparent; }
   .community-content { max-width: 100%; }
   .community-content h2 { font-size: 29px; }
   .community-content > p { font-size: 11px; }
-  .community-mark { position: absolute; right: -65px; bottom: -48px; width: 170px; height: 170px; opacity: .23; }
-  .community-mark img { width: 110px; height: 110px; }
+  .community-mark { position: absolute; right: 4px; bottom: 4px; width: 120px; height: 120px; opacity: .16; }
+  .community-mark img { width: 88px; height: 88px; }
   .community-actions { position: relative; z-index: 2; }
   .footer-inner { justify-content: space-between; gap: 13px; padding-block: 19px; }
   .footer-inner > p { order: 3; flex: 1 0 100%; max-width: 100%; font-size: 9px; }
@@ -677,6 +677,9 @@ h1, h2, h3 { text-wrap: pretty; transition: color 260ms ease, text-shadow 350ms 
   position: fixed;
   z-index: 1000;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   display: grid;
   place-items: center;
   overflow: hidden;
