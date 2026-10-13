@@ -348,7 +348,7 @@ if (pointerCanTilt && !prefersReducedMotion) {
 }
 
 const revealTargets = document.querySelectorAll(
-  '.hero-copy, .hero-art, .trust-inner, .section-heading, .feature-card, .scan-card, .scan-footnote, .privacy-copy, .privacy-visual, .limits-panel, .community-card, .footer-inner'
+  '.hero-copy, .hero-art, .trust-inner, .section-heading, .feature-card, .scan-card, .tour-shot, .scan-footnote, .privacy-copy, .privacy-visual, .limits-panel, .community-card, .footer-inner'
 );
 
 if (revealTargets.length && !prefersReducedMotion && 'IntersectionObserver' in window) {

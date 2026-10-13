@@ -1035,6 +1035,36 @@ body {
 }
 @media (max-width: 380px) { .tour-grid { grid-template-columns: 1fr; } .tour-shot img { aspect-ratio: 16/9; } }
 
+/* Make the screenshot tour feel like a tactile sequence of real product panels. */
+.has-reveal .tour-shot { opacity: 0; transform: translateY(24px) scale(.975); transition: opacity 650ms ease, transform 650ms cubic-bezier(.18,.72,.24,1), border-color 260ms ease, box-shadow 320ms ease; }
+.has-reveal .tour-shot.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+.has-reveal .tour-shot:nth-child(2) { transition-delay: 70ms; }
+.has-reveal .tour-shot:nth-child(3) { transition-delay: 140ms; }
+.has-reveal .tour-shot:nth-child(4) { transition-delay: 210ms; }
+.has-reveal .tour-shot:nth-child(5) { transition-delay: 280ms; }
+.tour-shot { --light-x: 50%; --light-y: 35%; transform-style: preserve-3d; }
+.tour-shot a { display: block; height: 100%; color: inherit; text-decoration: none; }
+.tour-shot a::before { position: absolute; z-index: 2; top: 9px; left: 9px; width: calc(100% - 18px); height: 42%; border-radius: 9px; content: ""; background: linear-gradient(115deg,transparent 15%,rgba(186,225,255,.12) 48%,transparent 72%); opacity: 0; pointer-events: none; transform: translateX(-125%); }
+.tour-shot:hover a::before, .tour-shot:focus-within a::before { opacity: 1; animation: screenshot-sheen 850ms cubic-bezier(.2,.7,.2,1) both; }
+.tour-shot:hover { border-color: rgba(128,218,222,.38); box-shadow: inset 0 1px rgba(226,240,255,.17),0 24px 64px rgba(0,0,0,.36),0 0 26px rgba(59,155,179,.12); }
+.tour-shot:hover img, .tour-shot:focus-within img { transform: scale(1.045); border-color: rgba(158,214,244,.38); filter: saturate(1.12) contrast(1.035); }
+.tour-shot img { transition: transform 500ms cubic-bezier(.18,.72,.24,1),filter 450ms ease,border-color 320ms ease; }
+.shot-expand { position: absolute; z-index: 3; top: 14px; right: 14px; display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid rgba(203,226,250,.19); border-radius: 50%; color: #e2f1ff; background: rgba(6,11,19,.78); box-shadow: 0 4px 14px rgba(0,0,0,.22); font-size: 15px; opacity: .72; transform: translateY(2px); transition: opacity 220ms ease,transform 220ms ease,border-color 220ms ease,background 220ms ease; }
+.tour-shot:hover .shot-expand, .tour-shot:focus-within .shot-expand { opacity: 1; transform: translateY(0); border-color: rgba(129,221,216,.6); background: rgba(20,51,64,.92); }
+.tour-shot figcaption span { transition: color 220ms ease,transform 260ms ease; }
+.tour-shot:hover figcaption span, .tour-shot:focus-within figcaption span { color: #bff5eb; transform: translateX(2px); }
+.tour-shot:active { border-color: rgba(123,220,215,.56); box-shadow: inset 0 1px rgba(226,240,255,.16),0 8px 24px rgba(0,0,0,.28); }
+@keyframes screenshot-sheen { 0% { opacity: 0; transform: translateX(-125%); } 20% { opacity: 1; } 100% { opacity: 0; transform: translateX(125%); } }
+@media (hover:none) and (pointer:coarse) {
+ .tour-shot:active { transform: scale(.985); }
+ .tour-shot .shot-expand { opacity: .94; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .has-reveal .tour-shot,.has-reveal .tour-shot.is-visible { opacity: 1; transform: none; transition: none; }
+ .tour-shot,.tour-shot img,.shot-expand,.tour-shot figcaption span { transform: none !important; transition: none !important; }
+ .tour-shot a::before { display: none; animation: none !important; }
+}
+
 /* Touch browsers keep :hover/focus states after a tap; keep the desktop preview out of the phone layout. */
 @media (hover: none) and (pointer: coarse) {
   .github-preview { display: none; }
