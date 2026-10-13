@@ -1,10 +1,11 @@
 const copy = {
   th: {
     skip: 'ข้ามไปยังเนื้อหา', brandTag: 'ความปลอดภัยที่คุณมองเห็นได้', menu: 'เปิดเมนู',
-    navFeatures: 'ความสามารถ', navScans: 'รูปแบบสแกน', navTransparency: 'ข้อจำกัด', language: 'ภาษา', navDownload: 'ดาวน์โหลด',
+    navFeatures: 'ความสามารถ', navScans: 'รูปแบบสแกน', navTransparency: 'ข้อจำกัด', navSecurity: 'ความปลอดภัย', language: 'ภาษา', navDownload: 'ดาวน์โหลด',
     heroEyebrow: 'INTRODUCING LUNA GUARD', heroLead: 'ความปลอดภัย', heroAccent: 'ที่มองเห็นได้',
     heroDescription: 'เครื่องมือสแกนตามคำสั่ง ที่ช่วยให้คุณตรวจสอบไฟล์ ทำความเข้าใจผลตรวจ และจัดการสิ่งที่พบได้ด้วยตัวเอง',
-    heroPrimary: 'ดู Releases', heroSecondary: 'ดูซอร์สโค้ด', heroNote: 'Windows desktop · สแกนเมื่อคุณสั่ง · ไม่แทนที่ Microsoft Defender',
+    heroPrimary: 'Download Luna Guard', heroSecondary: 'ดูซอร์สโค้ด', heroNote: 'Windows desktop · สแกนเมื่อคุณสั่ง · ไม่แทนที่ Microsoft Defender',
+    releasePlatform: 'Windows 10/11 • x64 • Public source', releaseVersionLabel: 'Release', copyHash: 'คัดลอก', tourEyebrow: 'INSIDE LUNA GUARD', tourTitle: 'เห็นขั้นตอนจริง ก่อนติดตั้ง', tourIntro: 'ภาพจากหน้าจอแอป พร้อมข้อมูลสาธิตเพื่อให้เห็นลำดับการทำงาน ไม่ใช่ผลตรวจจากเครื่องจริง', tourDashboard: 'Dashboard', tourScan: 'Scan', tourThreat: 'พบภัยคุกคาม', tourQuarantine: 'กักกัน', tourHistory: 'ประวัติ', tourDemo: 'ข้อมูลสาธิต',
     illustrationOnDemand: 'ON-DEMAND', illustrationPipeline: 'DETECTION PIPELINE', illustrationTitle: 'ตรวจหลายชั้น อธิบายทุกผล',
     pipelineHash: 'ฐานข้อมูล Hash', pipelineLocal: 'LOCAL', pipelineYara: 'กฎ YARA', pipelineYaraSub: 'กฎที่จัดการได้และตรวจสอบได้', pipelineRules: 'RULES',
     pipelineFile: 'ข้อมูลไฟล์', pipelineFileSub: 'File entropy · PE details when supported', pipelineAnalyze: 'ANALYZE', pipelineIntel: 'Threat intelligence', pipelineFeeds: 'FEEDS',
@@ -26,14 +27,24 @@ const copy = {
     limit1: 'Luna Guard สแกนเมื่อผู้ใช้สั่ง และไม่แทนที่การป้องกันแบบ real-time ของ Microsoft Defender', limit2: 'การตรวจ archive มีขีดจำกัดด้านจำนวน ขนาด ความลึก และทรัพยากร เพื่อป้องกันการใช้พื้นที่หรือเวลามากเกินไป',
     limit3: 'ไฟล์ที่อ่านไม่ได้ ถูกเข้ารหัส หรือเกินขอบเขตจะทำให้ผลสแกนไม่ครบ ไม่ควรตีความว่าไฟล์นั้นปลอดภัย', limit4: 'ผล “ไม่พบภัยคุกคาม” ใช้ได้เฉพาะขอบเขตที่สแกน และไม่รับประกันว่าอุปกรณ์ปลอดภัยทั้งหมด', limitsLink: 'อ่านข้อจำกัดและรายละเอียดทั้งหมด',
     communityEyebrow: 'STAY IN THE LOOP', communityTitle: 'ร่วมสร้าง Luna Guard ไปด้วยกัน', communityBody: 'ดูซอร์สโค้ด ติดตามการอัปเดต หรือพูดคุยกับชุมชนของเรา', communityDownload: 'ดู Releases', communityDiscord: 'เข้าร่วม Discord',
-    footerDisclaimer: 'เครื่องมือสแกนตามคำสั่ง ไม่ใช่โปรแกรมป้องกันไวรัสแบบ real-time', footerSecurity: 'ความปลอดภัย'
+    footerDisclaimer: 'เครื่องมือสแกนตามคำสั่ง ไม่ใช่โปรแกรมป้องกันไวรัสแบบ real-time', footerSecurity: 'ความปลอดภัย',
+    secEyebrow: 'SECURITY / TRANSPARENCY', secTitle: 'ความปลอดภัยที่ตรวจสอบได้', secIntro: 'สรุปว่า Luna Guard ตรวจอะไร มีขอบเขตตรงไหน และจัดการข้อมูลในเครื่องอย่างไร รายละเอียดอ้างอิงจากแอปเดสก์ท็อปรุ่นปัจจุบันและอาจเปลี่ยนตามรุ่น', secSource: 'อ่านบันทึกความปลอดภัยจากซอร์ส ↗',
+    secNavArchitecture: 'Detection Architecture', secNavIntel: 'Threat Intelligence', secNavArchives: 'Archive Protection', secNavQuarantine: 'Quarantine Security', secNavPrivacy: 'Privacy', secNavLimits: 'Limitations', secNavDisclosure: 'Security Disclosure',
+    secArchitectureTitle: 'Detection Architecture', secArchitectureBody: 'แอปเดสก์ท็อปสแกนเมื่อผู้ใช้สั่ง ขั้นตอนประกอบด้วยการเทียบ SHA-256, SHA-1 และ MD5 กับฐานข้อมูลในเครื่อง กฎ YARA ที่ตั้งค่าไว้ บริบทไฟล์ (รวม entropy และ PE metadata ที่มีขอบเขตเมื่อรองรับ) และตัวบ่งชี้จาก threat feed ที่เลือกไว้ Quick scan ตรวจสัญญาณ process และ memory/ระบบบางส่วนได้ ผลแต่ละรายการแสดงหลักฐานประกอบ คะแนนความเสี่ยงเป็นการสรุปจาก heuristic ไม่ใช่ความน่าจะเป็น',
+    secIntelTitle: 'Threat Intelligence', secIntelBody: 'การอัปเดต feed เชื่อมต่อ MalwareBazaar (รวม recent detections), ThreatFox และ URLhaus โดยไม่อัปโหลดเนื้อหาไฟล์หรือประวัติการสแกนไปยังผู้ให้บริการดังกล่าว API key ของ abuse.ch เป็นตัวเลือก จัดเก็บในเครื่องและป้องกันด้วย Windows DPAPI สำหรับบัญชีปัจจุบัน ทั้งนี้ไม่ป้องกันมัลแวร์ที่ทำงานภายใต้บัญชีเดียวกัน การเชื่อมต่อเครือข่ายเกิดขึ้นตอนอัปเดต feed',
+    secArchiveTitle: 'Archive Protection', secArchiveBody: 'การสแกน archive จำกัดทรัพยากรรวมถึงสมาชิกซ้อนกัน เนื้อหาที่เข้ารหัส เสียหาย ไม่รองรับ เข้าไม่ถึง หรือเกินงบอาจถูกข้าม และต้องแสดงสถานะสแกนไม่ครบ', secLimit: 'ขีดจำกัด', secMembers: 'จำนวนสมาชิก', secMemberSize: 'ขนาดขยายต่อสมาชิก', secTotalSize: 'ขนาดขยายรวม', secDepth: 'ความลึกซ้อน', secRatio: 'อัตราบีบอัด', secTime: 'เวลาต่อ archive', secNoTimer: 'ไม่จับเวลา', secArchiveNote: 'Deep mode จะหยุดตรวจเมื่อพื้นที่ชั่วคราวเหลือน้อยกว่า 1 GiB การสแกนไดรฟ์ C: ไม่มีเพดานรวมจำนวนไฟล์หรือเวลา และไม่ตาม junction/reparse point โดยรายงานรายการที่ข้ามเป็นสแกนไม่ครบ ข้อมูล ZIP central directory ใช้หน่วยความจำตามจำนวนสมาชิกที่ถูกจำกัดไว้',
+    secQuarantineTitle: 'Quarantine Security', secQuarantineBody: 'การกักกันบันทึก metadata ก่อนคัดลอก ตรวจ SHA-256 ก่อนลบต้นฉบับ และเขียนสถานะอย่าง atomic การกู้คืนตรวจ digest ปฏิเสธปลายทางที่ชนกัน และเขียนไฟล์ชั่วคราวก่อนวางแบบ atomic โดยไม่เขียนทับ การกู้คืนเมื่อเริ่มแอปจะคงรายการที่คลุมเครือไว้ในสถานะต้องตรวจสอบ การลบถาวรต้องยืนยันใน UI และตรวจ digest ซ้ำ',
+    secPrivacyTitle: 'Privacy', secPrivacyBody: 'การสแกนเดสก์ท็อปทำในเครื่อง ประวัติสแกนจัดเก็บในเครื่องและอาจมี file path กับเหตุผลการตรวจ Activity log อยู่ในหน่วยความจำ Audit log แบบจำกัดบันทึกเฉพาะ event metadata และ ID ที่กำหนดไว้ ไม่บันทึก path หรือ API key API ของ dashboard เดสก์ท็อป bind ที่ loopback ใช้ token เฉพาะรอบและตรวจ Host/Origin แอปมือถือสแกนเฉพาะไฟล์ที่ผู้ใช้เลือก ไม่ตรวจข้อมูลส่วนตัวของแอปอื่น',
+    secLimitsTitle: 'Limitations', secLimitItem1: 'Luna Guard เป็นเครื่องมือสแกนตามคำสั่งและช่วยกักกัน ไม่ใช่ระบบป้องกันแบบ real-time หรือสิ่งทดแทน Microsoft Defender', secLimitItem2: 'ผลสะอาดครอบคลุมเฉพาะส่วนที่สแกนตรวจได้ ปัญหาสิทธิ์ ไฟล์ไม่รองรับ และขีดจำกัดทรัพยากรทำให้ผลไม่ครบ', secLimitItem3: 'กฎ YARA เป็น heuristic ที่จัดทำโดยโครงการ ข้อมูลใบอนุญาตหรือการตรวจสอบอิสระอาจยังไม่ครบ ควรทบทวนผลที่อาจเป็น false positive', secLimitItem4: 'การมีข้อมูลลายเซ็น PE เป็นเพียงการตรวจ metadata ไม่ได้ยืนยัน Authenticode หรือตัวตนผู้เผยแพร่ และ version string ปลอมแปลงได้', secLimitItem5: 'คะแนนความเสี่ยงเป็น heuristic ไม่ใช่ค่าความน่าจะเป็นที่สอบเทียบแล้ว ไฟล์ Windows ยังไม่มีลายเซ็นดิจิทัลและอาจแสดง unknown publisher หรือ SmartScreen',
+    secDisclosureTitle: 'Security Disclosure', secDisclosureBody: 'รายงานช่องโหว่ที่สงสัยผ่าน GitHub security reporting ของเจ้าของ repository เมื่อเปิดใช้งาน หรือแจ้งผู้ดูแลเป็นการส่วนตัวก่อนเผยแพร่รายละเอียดการโจมตี ห้ามแนบ API key เนื้อหาไฟล์ส่วนบุคคล หรือกุญแจลงนาม', secDisclosureLink: 'เปิด GitHub Security ↗'
   },
   en: {
     skip: 'Skip to content', brandTag: 'Security you can see', menu: 'Open menu',
-    navFeatures: 'Capabilities', navScans: 'Scan modes', navTransparency: 'Limitations', language: 'Language', navDownload: 'Downloads',
+    navFeatures: 'Capabilities', navScans: 'Scan modes', navTransparency: 'Limitations', navSecurity: 'Security', language: 'Language', navDownload: 'Downloads',
     heroEyebrow: 'INTRODUCING LUNA GUARD', heroLead: 'Security,', heroAccent: 'made visible.',
     heroDescription: 'An on-demand scanner that helps you inspect files, understand findings, and stay in control of what happens next.',
-    heroPrimary: 'View releases', heroSecondary: 'Explore the source', heroNote: 'Windows desktop · Runs when you ask · Does not replace Microsoft Defender',
+    heroPrimary: 'Download Luna Guard', heroSecondary: 'Explore the source', heroNote: 'Windows desktop · Runs when you ask · Does not replace Microsoft Defender',
+    releasePlatform: 'Windows 10/11 • x64 • Public source', releaseVersionLabel: 'Release', copyHash: 'Copy', tourEyebrow: 'INSIDE LUNA GUARD', tourTitle: 'See the workflow before installing', tourIntro: 'Screenshots from the app with demonstration data. They illustrate the workflow and are not results from a real device.', tourDashboard: 'Dashboard', tourScan: 'Scan', tourThreat: 'Threat found', tourQuarantine: 'Quarantine', tourHistory: 'History', tourDemo: 'Demo data',
     illustrationOnDemand: 'ON-DEMAND', illustrationPipeline: 'DETECTION PIPELINE', illustrationTitle: 'Layered checks. Clear reasons.',
     pipelineHash: 'Hash database', pipelineLocal: 'LOCAL', pipelineYara: 'YARA rules', pipelineYaraSub: 'Rules you can inspect and maintain', pipelineRules: 'RULES',
     pipelineFile: 'File intelligence', pipelineFileSub: 'File entropy · PE details when supported', pipelineAnalyze: 'ANALYZE', pipelineIntel: 'Threat intelligence', pipelineFeeds: 'FEEDS',
@@ -55,14 +66,24 @@ const copy = {
     limit1: 'Luna Guard scans on demand and does not replace the real-time protection in Microsoft Defender.', limit2: 'Archive inspection has member, size, depth, and resource limits to control disk and time use.',
     limit3: 'Unreadable, encrypted, or out-of-scope files make a scan incomplete. They should not be treated as clean.', limit4: '“No threats found” applies only to the scanned scope and does not guarantee the device is safe.', limitsLink: 'Read all limitations and details',
     communityEyebrow: 'STAY IN THE LOOP', communityTitle: 'Build Luna Guard with us.', communityBody: 'Explore the source, follow updates, or talk with the community.', communityDownload: 'View releases', communityDiscord: 'Join Discord',
-    footerDisclaimer: 'On-demand scanner. Not real-time antivirus software.', footerSecurity: 'Security'
+    footerDisclaimer: 'On-demand scanner. Not real-time antivirus software.', footerSecurity: 'Security',
+    secEyebrow: 'SECURITY / TRANSPARENCY', secTitle: 'Security, built to be inspected.', secIntro: 'A practical overview of what Luna Guard checks, where its boundaries are, and how local data is handled. Details reflect the current desktop implementation and may change between releases.', secSource: 'Source security notes ↗',
+    secNavArchitecture: 'Detection Architecture', secNavIntel: 'Threat Intelligence', secNavArchives: 'Archive Protection', secNavQuarantine: 'Quarantine Security', secNavPrivacy: 'Privacy', secNavLimits: 'Limitations', secNavDisclosure: 'Security Disclosure',
+    secArchitectureTitle: 'Detection Architecture', secArchitectureBody: 'Desktop scans run on demand. The pipeline uses local SHA-256, SHA-1 and MD5 lookups, configured YARA rules, file context (including entropy and bounded PE metadata when supported), and selected threat-feed indicators. Quick scan can also inspect selected process and memory/system signals. Each result includes evidence; risk scores are heuristic summaries, not probabilities.',
+    secIntelTitle: 'Threat Intelligence', secIntelBody: 'Feed updates contact MalwareBazaar (including its recent detections feed), ThreatFox and URLhaus. File contents and scan history are not uploaded to those providers. The optional abuse.ch API key is stored locally and protected with Windows DPAPI for the current account; this does not protect against malware already running as that user. Network access is used when updating feeds.',
+    secArchiveTitle: 'Archive Protection', secArchiveBody: 'Archive scanning applies limits across nested members. Encrypted, corrupt, unsupported, inaccessible, or over-budget content can be skipped and must leave the scan marked incomplete.', secLimit: 'Limit', secMembers: 'Members', secMemberSize: 'Expanded size / member', secTotalSize: 'Total expanded size', secDepth: 'Nesting depth', secRatio: 'Compression ratio', secTime: 'Per-archive time limit', secNoTimer: 'No timer', secArchiveNote: 'Deep mode stops when the temporary drive cannot retain 1 GiB free. Full C: scanning has no overall file-count or time cap, does not follow junctions/reparse points, and reports skipped paths as incomplete. ZIP central-directory memory is proportional to its capped member count.',
+    secQuarantineTitle: 'Quarantine Security', secQuarantineBody: 'Quarantine records metadata before copying, verifies SHA-256 before removing the source, and writes state changes atomically. Restore verifies the digest, refuses destination conflicts, and uses a temporary file followed by atomic no-overwrite placement. Startup recovery leaves ambiguous operations in a recovery-required state. Permanent deletion requires explicit UI confirmation and another digest check.',
+    secPrivacyTitle: 'Privacy', secPrivacyBody: 'Desktop scans run locally. Scan history is stored locally and may contain file paths and detection reasons; activity logs are held in process memory. A bounded audit log records allowlisted event metadata and IDs, not paths or API keys. The desktop dashboard API binds to loopback and uses a per-run token plus Host/Origin checks. The mobile app scans only user-selected files and does not inspect other apps’ private data.',
+    secLimitsTitle: 'Limitations', secLimitItem1: 'Luna Guard is an on-demand scanner and quarantine helper, not real-time protection or a replacement for Microsoft Defender.', secLimitItem2: 'A clean result covers only components the scan could inspect. Permission errors, unsupported files, and resource limits make results incomplete.', secLimitItem3: 'YARA rules are first-party heuristics; licensing and independent review may be incomplete. Review matches for false positives.', secLimitItem4: 'PE signature presence checks metadata only; it does not validate Authenticode signatures or publisher trust. Version strings can be forged.', secLimitItem5: 'Risk scores are heuristic summaries, not calibrated probabilities. The Windows executable is unsigned and may show an unknown-publisher or SmartScreen warning.',
+    secDisclosureTitle: 'Security Disclosure', secDisclosureBody: 'Report suspected vulnerabilities through the repository owner’s GitHub security reporting channel when enabled, or contact the maintainer privately before publishing exploit details. Do not include API keys, personal file contents, or signing material.', secDisclosureLink: 'Open GitHub Security ↗'
   },
   zh: {
     skip: '跳转到正文', brandTag: '看得见的安全防护', menu: '打开菜单',
-    navFeatures: '功能', navScans: '扫描模式', navTransparency: '使用限制', language: '语言', navDownload: '下载',
+    navFeatures: '功能', navScans: '扫描模式', navTransparency: '使用限制', navSecurity: '安全', language: '语言', navDownload: '下载',
     heroEyebrow: '认识 LUNA GUARD', heroLead: '安全防护，', heroAccent: '清晰可见。',
     heroDescription: '按需运行的扫描工具，帮助您检查文件、理解检测结果，并自主决定后续操作。',
-    heroPrimary: '查看发行版', heroSecondary: '查看源代码', heroNote: 'Windows 桌面版 · 按需扫描 · 不替代 Microsoft Defender',
+    heroPrimary: '下载 Luna Guard', heroSecondary: '查看源代码', heroNote: 'Windows 桌面版 · 按需扫描 · 不替代 Microsoft Defender',
+    releasePlatform: 'Windows 10/11 • x64 • 公开源码', releaseVersionLabel: '版本', copyHash: '复制', tourEyebrow: '应用界面', tourTitle: '安装前先了解扫描流程', tourIntro: '以下为应用界面截图，使用演示数据展示流程，并非真实设备的扫描结果。', tourDashboard: '仪表板', tourScan: '扫描', tourThreat: '发现威胁', tourQuarantine: '隔离', tourHistory: '历史记录', tourDemo: '演示数据',
     illustrationOnDemand: '按需扫描', illustrationPipeline: '检测流程', illustrationTitle: '多层检查，说明每项结果。',
     pipelineHash: '哈希数据库', pipelineLocal: '本地', pipelineYara: 'YARA 规则', pipelineYaraSub: '规则可供查看和维护', pipelineRules: '规则',
     pipelineFile: '文件信息', pipelineFileSub: '文件熵 · 支持时读取 PE 信息', pipelineAnalyze: '分析', pipelineIntel: '威胁情报', pipelineFeeds: '数据源',
@@ -84,7 +105,16 @@ const copy = {
     limit1: 'Luna Guard 按需扫描，不替代 Microsoft Defender 的实时防护。', limit2: '压缩包检查受到成员数量、文件大小、嵌套深度和资源用量限制。',
     limit3: '无法读取、已加密或超出范围的文件会导致扫描不完整，不应视为安全。', limit4: '“未发现威胁”仅适用于已扫描范围，并不保证设备完全安全。', limitsLink: '阅读全部限制与详情',
     communityEyebrow: '关注项目动态', communityTitle: '与我们一起建设 Luna Guard。', communityBody: '查看源代码、关注更新，或加入社区交流。', communityDownload: '查看发行版', communityDiscord: '加入 Discord',
-    footerDisclaimer: '按需扫描工具，不是实时防病毒软件。', footerSecurity: '安全'
+    footerDisclaimer: '按需扫描工具，不是实时防病毒软件。', footerSecurity: '安全',
+    secEyebrow: '安全 / 透明度', secTitle: '安全设计，经得起审查。', secIntro: '概述 Luna Guard 检查的内容、功能边界及本地数据处理方式。详情基于当前桌面版实现，可能随版本更新而变化。', secSource: '查看源代码安全说明 ↗',
+    secNavArchitecture: '检测架构', secNavIntel: '威胁情报', secNavArchives: '压缩包防护', secNavQuarantine: '隔离安全', secNavPrivacy: '隐私', secNavLimits: '限制', secNavDisclosure: '安全问题披露',
+    secArchitectureTitle: '检测架构', secArchitectureBody: '桌面版按需扫描。检测流程包括本地 SHA-256、SHA-1 和 MD5 查询、已配置的 YARA 规则、文件上下文（包括熵和支持时读取的受限 PE 元数据）及选定的威胁数据源指标。快速扫描还可检查部分进程、内存和系统信号。每项结果附有依据；风险评分是启发式摘要，并非概率。',
+    secIntelTitle: '威胁情报', secIntelBody: '更新数据源时会连接 MalwareBazaar（包括近期检测源）、ThreatFox 和 URLhaus。不会向这些服务上传文件内容或扫描历史。可选的 abuse.ch API 密钥保存在本地，并通过当前账户的 Windows DPAPI 保护；无法防止同一账户下已运行的恶意软件。更新数据源时需要网络连接。',
+    secArchiveTitle: '压缩包防护', secArchiveBody: '压缩包扫描会限制所有嵌套成员的资源用量。加密、损坏、不支持、无法访问或超出预算的内容可能被跳过，扫描结果必须标记为不完整。', secLimit: '限制项', secMembers: '成员数量', secMemberSize: '单个成员展开大小', secTotalSize: '展开总大小', secDepth: '嵌套深度', secRatio: '压缩比', secTime: '单个压缩包时间限制', secNoTimer: '无计时器', secArchiveNote: 'Deep 模式在临时磁盘无法保留 1 GiB 可用空间时停止。C: 盘完整扫描没有总文件数或时间上限，不跟随 junction/reparse point，并将跳过路径报告为扫描不完整。ZIP central directory 的内存用量与受限的成员数成正比。',
+    secQuarantineTitle: '隔离安全', secQuarantineBody: '隔离时先记录元数据，再复制文件；删除源文件前验证 SHA-256，并以原子方式写入状态。恢复时再次验证摘要、拒绝目标冲突，并先写入临时文件再以原子方式放置且不覆盖。启动恢复会将状态不明确的操作保留为需要恢复处理。永久删除需要在界面明确确认并再次验证摘要。',
+    secPrivacyTitle: '隐私', secPrivacyBody: '桌面扫描在本地运行。扫描历史保存在本地，可能包含文件路径和检测原因；活动日志保存在进程内存中。受限审计日志只记录允许列表中的事件元数据和 ID，不记录路径或 API 密钥。桌面 dashboard API 绑定 loopback，使用每次运行的 token 并检查 Host/Origin。移动版只扫描用户选择的文件，不检查其他应用的私有数据。',
+    secLimitsTitle: '限制', secLimitItem1: 'Luna Guard 是按需扫描和隔离工具，不提供实时防护，也不能替代 Microsoft Defender。', secLimitItem2: '扫描干净只涵盖能够检查的组件。权限错误、不支持的文件和资源限制都会使结果不完整。', secLimitItem3: 'YARA 规则是项目自行编写的启发式规则；许可信息或独立审查可能不完整，请复核可能的误报。', secLimitItem4: 'PE 签名数据是否存在仅为元数据检查，不验证 Authenticode 签名或发布者信任；版本字符串可以伪造。', secLimitItem5: '风险评分是启发式摘要，不是校准后的概率。Windows 程序未签名，可能出现未知发布者或 SmartScreen 警告。',
+    secDisclosureTitle: '安全问题披露', secDisclosureBody: '如发现疑似漏洞，请在启用时通过仓库所有者的 GitHub 安全报告渠道提交，或在公开攻击细节前私下联系维护者。请勿附上 API 密钥、个人文件内容或签名材料。', secDisclosureLink: '打开 GitHub Security ↗'
   }
 };
 
@@ -108,6 +138,15 @@ try { savedLanguage = localStorage.getItem('luna-site-language') || 'th'; } catc
 applyLanguage(savedLanguage);
 languageSelect?.addEventListener('change', (event) => applyLanguage(event.target.value));
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
+
+document.querySelectorAll('[data-copy-sha]').forEach((button) => button.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(button.dataset.copySha);
+    const label = button.querySelector('[data-i18n="copyHash"]');
+    if (label) label.textContent = document.documentElement.lang === 'th' ? 'คัดลอกแล้ว' : document.documentElement.lang === 'zh-CN' ? '已复制' : 'Copied';
+    window.setTimeout(() => { if (label) label.textContent = copy[document.documentElement.lang === 'zh-CN' ? 'zh' : document.documentElement.lang]?.copyHash || 'Copy'; }, 1800);
+  } catch { button.title = button.dataset.copySha; }
+}));
 
 menuToggle?.addEventListener('click', () => {
   const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
