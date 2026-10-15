@@ -107,6 +107,7 @@
         <a href="#scans" data-i18n="navScans">รูปแบบสแกน</a>
         <a href="#transparency" data-i18n="navTransparency">ข้อจำกัด</a>
         <a href="security.html" data-i18n="navSecurity">Security</a>
+        <a href="acquisition.html" data-i18n="navAcquisition">Acquisition</a>
         <label class="language-picker">
           <span class="sr-only" data-i18n="language">ภาษา</span>
           <span class="language-emoji" aria-hidden="true">🌐</span>
@@ -142,7 +143,7 @@
         </div>
         <div class="release-proof" aria-label="Release details">
           <span class="release-platform" data-i18n="releasePlatform">Windows 10/11 • x64 • Public source</span>
-          <div class="release-identity"><span><small data-i18n="releaseVersionLabel">Release</small><b>v1.5.4</b></span><span class="release-divider" aria-hidden="true"></span><span class="release-hash"><small>SHA-256</small><button type="button" data-copy-sha="a804c34fba8aa6110edf2bc7cb14375bc7c4ef959840d1cb12d6cc35439f755c" aria-label="Copy SHA-256">a804c34fba8aa6110edf2bc7cb14375bc7c4ef959840d1cb12d6cc35439f755c <span data-i18n="copyHash">Copy</span></button></span></div>
+          <div class="release-identity"><span><small data-i18n="releaseVersionLabel">Release</small><b>v1.6.0</b></span><span class="release-divider" aria-hidden="true"></span><span class="release-hash"><small>SHA-256</small><button type="button" data-copy-sha="0327c69747cad5937bf2efdb862a5f3e3f89b6c59238752098d158e3616b7aca" aria-label="Copy SHA-256">0327c69747cad5937bf2efdb862a5f3e3f89b6c59238752098d158e3616b7aca <span data-i18n="copyHash">Copy</span></button></span></div>
         </div>
         <div class="hero-note"><span class="status-dot"></span><span data-i18n="heroNote">Windows desktop · สแกนเมื่อคุณสั่ง · ไม่แทนที่ Microsoft Defender</span></div>
       </div>
@@ -169,6 +170,17 @@
 
     <section class="trust-strip" aria-label="Product principles">
       <div class="trust-inner"><span data-i18n="trustIntro">สร้างขึ้นบนหลักการ</span><b data-i18n="trustLocal">ประมวลผลในเครื่อง</b><i></i><b data-i18n="trustExplain">อธิบายที่มาของผลตรวจ</b><i></i><b data-i18n="trustControl">ผู้ใช้ควบคุมการจัดการ</b></div>
+    </section>
+
+    <section class="project-stats section-wrap" aria-labelledby="stats-title">
+      <div class="stats-heading"><div><div class="eyebrow"><span data-i18n="statsEyebrow">PROJECT SNAPSHOT</span></div><h2 id="stats-title" data-i18n="statsTitle">ตัวเลขสาธารณะที่ตรวจสอบได้</h2></div><span class="stats-live"><i></i><span data-i18n="statsLive">ข้อมูลจาก GitHub</span></span></div>
+      <div class="stats-grid">
+        <a class="stat-card glass-card" href="https://github.com/Aomtana0070/Luna-Guard/stargazers" target="_blank" rel="noopener noreferrer"><span class="stat-symbol">✦</span><b class="stat-value" data-stat="stars">2</b><span class="stat-label" data-i18n="statsStars">GitHub stars</span></a>
+        <a class="stat-card glass-card" href="https://github.com/Aomtana0070/Luna-Guard/releases" target="_blank" rel="noopener noreferrer"><span class="stat-symbol">↧</span><b class="stat-value" data-stat="downloads">24</b><span class="stat-label" data-i18n="statsDownloads">ยอดโหลด Release assets</span></a>
+        <a class="stat-card glass-card" href="https://github.com/Aomtana0070/Luna-Guard/releases" target="_blank" rel="noopener noreferrer"><span class="stat-symbol">◷</span><b class="stat-value" data-stat="releases">17</b><span class="stat-label" data-i18n="statsReleases">Published releases</span></a>
+        <a class="stat-card glass-card" href="https://github.com/Aomtana0070/Luna-Guard/graphs/contributors" target="_blank" rel="noopener noreferrer"><span class="stat-symbol">◎</span><b class="stat-value" data-stat="contributors">1</b><span class="stat-label" data-i18n="statsContributors">GitHub contributors</span></a>
+      </div>
+      <p class="stats-footnote"><span data-i18n="statsNote">ตัวเลขอ้างอิง GitHub API และอัปเดตเมื่อเปิดหน้า; ยอดโหลดนับไฟล์ Release assets รวม ไม่ใช่จำนวนผู้ใช้</span><span><b data-i18n="statsUsers">Active users</b> · <span data-i18n="statsNotTracked">ไม่ได้ติดตามเพื่อรักษาความเป็นส่วนตัว</span></span></p>
     </section>
 
     <section class="section section-wrap app-tour" id="screenshots">
@@ -259,7 +271,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner"><a class="footer-brand" href="#top"><img src="assets/Luna_Guard.png" alt="" width="32" height="32"><b>Luna Guard</b></a><p data-i18n="footerDisclaimer">เครื่องมือสแกนตามคำสั่ง ไม่ใช่โปรแกรมป้องกันไวรัสแบบ real-time</p><div class="footer-links"><a href="https://github.com/Aomtana0070/Luna-Guard" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://github.com/Aomtana0070/Luna-Guard/releases" target="_blank" rel="noopener noreferrer">Releases</a><a href="https://discord.gg/vRKVCegUpF" target="_blank" rel="noopener noreferrer">Discord</a><a href="https://github.com/Aomtana0070/Luna-Guard/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" data-i18n="footerSecurity">Security</a></div><span class="copyright">© <span data-year></span> Luna Guard</span></div>
+    <div class="footer-inner"><a class="footer-brand" href="#top"><img src="assets/Luna_Guard.png" alt="" width="32" height="32"><b>Luna Guard</b></a><p data-i18n="footerDisclaimer">เครื่องมือสแกนตามคำสั่ง ไม่ใช่โปรแกรมป้องกันไวรัสแบบ real-time</p><div class="footer-links"><a href="https://github.com/Aomtana0070/Luna-Guard" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://github.com/Aomtana0070/Luna-Guard/releases" target="_blank" rel="noopener noreferrer">Releases</a><a href="security.html" data-i18n="navSecurity">Security</a><a href="acquisition.html" data-i18n="navAcquisition">Acquisition</a><a href="https://discord.gg/vRKVCegUpF" target="_blank" rel="noopener noreferrer">Discord</a></div><span class="copyright">© <span data-year></span> Luna Guard</span></div>
   </footer>
 </body>
 </html>

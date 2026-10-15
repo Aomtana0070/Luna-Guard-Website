@@ -1,7 +1,7 @@
 const copy = {
   th: {
     skip: 'ข้ามไปยังเนื้อหา', brandTag: 'ความปลอดภัยที่คุณมองเห็นได้', menu: 'เปิดเมนู',
-    navFeatures: 'ความสามารถ', navScans: 'รูปแบบสแกน', navTransparency: 'ข้อจำกัด', navSecurity: 'ความปลอดภัย', language: 'ภาษา', navDownload: 'ดาวน์โหลด',
+    navFeatures: 'ความสามารถ', navScans: 'รูปแบบสแกน', navTransparency: 'ข้อจำกัด', navSecurity: 'ความปลอดภัย', navAcquisition: 'Acquisition', language: 'ภาษา', navDownload: 'ดาวน์โหลด',
     heroEyebrow: 'INTRODUCING LUNA GUARD', heroLead: 'ความปลอดภัย', heroAccent: 'ที่มองเห็นได้',
     heroDescription: 'เครื่องมือสแกนตามคำสั่ง ที่ช่วยให้คุณตรวจสอบไฟล์ ทำความเข้าใจผลตรวจ และจัดการสิ่งที่พบได้ด้วยตัวเอง',
     heroPrimary: 'Download Luna Guard', heroSecondary: 'ดูซอร์สโค้ด', heroNote: 'Windows desktop · สแกนเมื่อคุณสั่ง · ไม่แทนที่ Microsoft Defender',
@@ -28,7 +28,11 @@ const copy = {
     limit3: 'ไฟล์ที่อ่านไม่ได้ ถูกเข้ารหัส หรือเกินขอบเขตจะทำให้ผลสแกนไม่ครบ ไม่ควรตีความว่าไฟล์นั้นปลอดภัย', limit4: 'ผล “ไม่พบภัยคุกคาม” ใช้ได้เฉพาะขอบเขตที่สแกน และไม่รับประกันว่าอุปกรณ์ปลอดภัยทั้งหมด', limitsLink: 'อ่านข้อจำกัดและรายละเอียดทั้งหมด',
     communityEyebrow: 'STAY IN THE LOOP', communityTitle: 'ร่วมสร้าง Luna Guard ไปด้วยกัน', communityBody: 'ดูซอร์สโค้ด ติดตามการอัปเดต หรือพูดคุยกับชุมชนของเรา', communityDownload: 'ดู Releases', communityDiscord: 'เข้าร่วม Discord',
     footerDisclaimer: 'เครื่องมือสแกนตามคำสั่ง ไม่ใช่โปรแกรมป้องกันไวรัสแบบ real-time', footerSecurity: 'ความปลอดภัย',
-    secEyebrow: 'SECURITY / TRANSPARENCY', secTitle: 'ความปลอดภัยที่ตรวจสอบได้', secIntro: 'สรุปว่า Luna Guard ตรวจอะไร มีขอบเขตตรงไหน และจัดการข้อมูลในเครื่องอย่างไร รายละเอียดอ้างอิงจากแอปเดสก์ท็อปรุ่นปัจจุบันและอาจเปลี่ยนตามรุ่น', secSource: 'อ่านบันทึกความปลอดภัยจากซอร์ส ↗',
+    statsEyebrow: 'PROJECT SNAPSHOT', statsTitle: 'ตัวเลขสาธารณะที่ตรวจสอบได้', statsLive: 'ข้อมูลจาก GitHub', statsStars: 'GitHub stars', statsDownloads: 'ยอดโหลด Release assets', statsReleases: 'Published releases', statsContributors: 'GitHub contributors', statsNote: 'ตัวเลขอ้างอิง GitHub API และอัปเดตเมื่อเปิดหน้า; ยอดโหลดนับไฟล์ Release assets รวม ไม่ใช่จำนวนผู้ใช้', statsUsers: 'Active users', statsNotTracked: 'ไม่ได้ติดตามเพื่อรักษาความเป็นส่วนตัว',
+    acqEyebrow: 'PROJECT AVAILABLE FOR ACQUISITION', acqTitle: 'Luna Guard — Acquisition', acqIntro: 'โปรเจกต์ cybersecurity สำหรับ Windows ที่มีซอร์สโค้ด ตัวแอป เอกสาร และเว็บไซต์ พร้อมพูดคุยเรื่องการเข้าซื้อกิจการ', acqContact: 'ติดต่อผู้ขายผ่าน GitHub', acqGithub: 'ดู GitHub', acqPreRevenue: 'Pre-revenue', acqPublicRepo: 'Public repository', acqWindows: 'Windows desktop', acqSnapshot: 'PROJECT SNAPSHOT', acqOverviewTitle: 'ฐานซอฟต์แวร์ที่มีอยู่ พร้อมต่อยอด', acqOverviewBody: 'Luna Guard เป็นเครื่องมือสแกนไฟล์ตามคำสั่งสำหรับ Windows พร้อม dashboard, ฐานข้อมูล hash/IOC ในเครื่อง, YARA, การวิเคราะห์ไฟล์ และ quarantine ที่ตรวจ SHA-256 ก่อนกู้คืน มี companion app บน Android ที่ทำงานในขอบเขตจำกัด', acqOverviewFeature1: 'On-demand Windows malware scanner', acqOverviewFeature2: 'YARA และ threat-intelligence feeds', acqOverviewFeature3: 'File, archive และ quarantine workflows', acqOverviewFeature4: 'Companion app และเว็บไซต์หลายภาษา',
+    acqIncludedEyebrow: 'TRANSFER SCOPE', acqIncludedTitle: 'สิ่งที่อยู่ในขอบเขตพูดคุย', acqIncludedIntro: 'รายการด้านล่างเป็นองค์ประกอบของโปรเจกต์ที่มีอยู่ การโอนจริงขึ้นกับการตรวจสิทธิ์และข้อตกลงเป็นลายลักษณ์อักษร', acqItemCode: 'ซอร์สโค้ดและแอป', acqItemCodeBody: 'Windows app, Android companion source, dashboard, tests และ build/release workflows', acqItemDocs: 'เอกสารและ security notes', acqItemDocsBody: 'README, คู่มือผู้ใช้, ข้อจำกัดที่เปิดเผย และเอกสารประกอบการพัฒนา', acqItemWeb: 'เว็บไซต์และเนื้อหา', acqItemWebBody: 'เว็บไซต์ Luna Guard, หน้า Security และหน้า Acquisition พร้อม assets ที่สิทธิ์ได้รับการยืนยัน', acqItemBrand: 'แบรนด์และ product assets', acqItemBrandBody: 'ชื่อ โลโก้ ไอคอน และภาพหน้าจอ เฉพาะรายการที่ผู้ขายยืนยันสิทธิ์ได้',
+    acqWhyEyebrow: 'WHY LUNA GUARD', acqWhyTitle: 'พร้อมสำหรับเจ้าของรายถัดไป', acqWhyBody: 'ผู้ซื้อสามารถประเมิน codebase ที่มีอยู่และตัดสินใจเองว่าจะพัฒนาต่อ ทำเชิงพาณิชย์ หรือรวมเข้ากับผลิตภัณฑ์อื่น โดยไม่ต้องเริ่มจากศูนย์', acqWhy1: 'Product workflows มีอยู่แล้ว', acqWhy2: 'มี release/build automation และ regression tests', acqWhy3: 'มีเว็บไซต์ เอกสาร และหน้า security disclosure', acqTransparencyEyebrow: 'IMPORTANT TRANSPARENCY', acqTransparencyTitle: 'ขอบเขตและสิทธิ์ต้องตรวจให้ครบ', acqTransparencyBody: 'โปรเจกต์ยังไม่มีรายได้ และไม่ใช่สิ่งทดแทน Microsoft Defender หรือแพลตฟอร์ม endpoint protection เต็มรูปแบบ ปัจจุบัน repo ยังไม่มีไฟล์ LICENSE; สิทธิ์ของ YARA rules และที่มาของบาง assets ต้องยืนยันก่อนสรุปการโอน Dependencies ยังคงอยู่ภายใต้ license ของเจ้าของแต่ละราย และเงื่อนไขของ threat-intelligence providers ไม่ได้โอนให้อัตโนมัติ', acqContactTitle: 'สนใจเข้าซื้อ Luna Guard?', acqContactBody: 'เริ่มต้นติดต่อผู้ดูแลผ่าน GitHub profile เพื่อพูดคุยขอบเขต ทรัพย์สิน และขั้นตอนตรวจสอบก่อนทำข้อตกลง', acqScopeNote: 'หน้านี้เป็นการแสดงความสนใจขายโปรเจกต์ ไม่ใช่การรับประกันสิทธิ์หรือผลการตรวจจับ ขอบเขตสุดท้ายต้องระบุในสัญญา',
+    secEyebrow: 'SECURITY / TRANSPARENCY', secTitle: 'ความปลอดภัยที่ตรวจสอบได้', secIntro: 'สรุปว่า Luna Guard ตรวจอะไร มีขอบเขตตรงไหน และจัดการข้อมูลในเครื่องอย่างไร รายละเอียดอ้างอิงจากแอปเดสก์ท็อปรุ่นปัจจุบันและอาจเปลี่ยนตามรุ่น', secSource: 'อ่านบันทึกความปลอดภัยจากซอร์ส ↗', secBrief: 'สรุปความปลอดภัย', secScope: 'ขอบเขตปัจจุบัน', secConsole1: 'ตรวจจับเมื่อสั่งสแกน', secDesktop: 'เดสก์ท็อป', secConsole2: 'ข้อมูลสแกนจัดเก็บในเครื่อง', secPrivacy: 'ความเป็นส่วนตัว', secConsole3: 'ตรวจ SHA-256 ก่อนกู้คืน', secTransparencyLabel: 'ข้อมูลโปร่งใส',
     secNavArchitecture: 'Detection Architecture', secNavIntel: 'Threat Intelligence', secNavArchives: 'Archive Protection', secNavQuarantine: 'Quarantine Security', secNavPrivacy: 'Privacy', secNavLimits: 'Limitations', secNavDisclosure: 'Security Disclosure',
     secArchitectureTitle: 'Detection Architecture', secArchitectureBody: 'แอปเดสก์ท็อปสแกนเมื่อผู้ใช้สั่ง ขั้นตอนประกอบด้วยการเทียบ SHA-256, SHA-1 และ MD5 กับฐานข้อมูลในเครื่อง กฎ YARA ที่ตั้งค่าไว้ บริบทไฟล์ (รวม entropy และ PE metadata ที่มีขอบเขตเมื่อรองรับ) และตัวบ่งชี้จาก threat feed ที่เลือกไว้ Quick scan ตรวจสัญญาณ process และ memory/ระบบบางส่วนได้ ผลแต่ละรายการแสดงหลักฐานประกอบ คะแนนความเสี่ยงเป็นการสรุปจาก heuristic ไม่ใช่ความน่าจะเป็น',
     secIntelTitle: 'Threat Intelligence', secIntelBody: 'การอัปเดต feed เชื่อมต่อ MalwareBazaar (รวม recent detections), ThreatFox และ URLhaus โดยไม่อัปโหลดเนื้อหาไฟล์หรือประวัติการสแกนไปยังผู้ให้บริการดังกล่าว API key ของ abuse.ch เป็นตัวเลือก จัดเก็บในเครื่องและป้องกันด้วย Windows DPAPI สำหรับบัญชีปัจจุบัน ทั้งนี้ไม่ป้องกันมัลแวร์ที่ทำงานภายใต้บัญชีเดียวกัน การเชื่อมต่อเครือข่ายเกิดขึ้นตอนอัปเดต feed',
@@ -40,7 +44,7 @@ const copy = {
   },
   en: {
     skip: 'Skip to content', brandTag: 'Security you can see', menu: 'Open menu',
-    navFeatures: 'Capabilities', navScans: 'Scan modes', navTransparency: 'Limitations', navSecurity: 'Security', language: 'Language', navDownload: 'Downloads',
+    navFeatures: 'Capabilities', navScans: 'Scan modes', navTransparency: 'Limitations', navSecurity: 'Security', navAcquisition: 'Acquisition', language: 'Language', navDownload: 'Downloads',
     heroEyebrow: 'INTRODUCING LUNA GUARD', heroLead: 'Security,', heroAccent: 'made visible.',
     heroDescription: 'An on-demand scanner that helps you inspect files, understand findings, and stay in control of what happens next.',
     heroPrimary: 'Download Luna Guard', heroSecondary: 'Explore the source', heroNote: 'Windows desktop · Runs when you ask · Does not replace Microsoft Defender',
@@ -67,7 +71,11 @@ const copy = {
     limit3: 'Unreadable, encrypted, or out-of-scope files make a scan incomplete. They should not be treated as clean.', limit4: '“No threats found” applies only to the scanned scope and does not guarantee the device is safe.', limitsLink: 'Read all limitations and details',
     communityEyebrow: 'STAY IN THE LOOP', communityTitle: 'Build Luna Guard with us.', communityBody: 'Explore the source, follow updates, or talk with the community.', communityDownload: 'View releases', communityDiscord: 'Join Discord',
     footerDisclaimer: 'On-demand scanner. Not real-time antivirus software.', footerSecurity: 'Security',
-    secEyebrow: 'SECURITY / TRANSPARENCY', secTitle: 'Security, built to be inspected.', secIntro: 'A practical overview of what Luna Guard checks, where its boundaries are, and how local data is handled. Details reflect the current desktop implementation and may change between releases.', secSource: 'Source security notes ↗',
+    statsEyebrow: 'PROJECT SNAPSHOT', statsTitle: 'Public, verifiable metrics', statsLive: 'From GitHub', statsStars: 'GitHub stars', statsDownloads: 'Release asset downloads', statsReleases: 'Published releases', statsContributors: 'GitHub contributors', statsNote: 'Counts come from the GitHub API and refresh when the page loads. Asset downloads include all release files and are not unique users.', statsUsers: 'Active users', statsNotTracked: 'Not tracked to preserve privacy',
+    acqEyebrow: 'PROJECT AVAILABLE FOR ACQUISITION', acqTitle: 'Luna Guard — Acquisition', acqIntro: 'A Windows cybersecurity project with an existing codebase, application, documentation, and website, available for acquisition discussions.', acqContact: 'Contact seller on GitHub', acqGithub: 'View GitHub', acqPreRevenue: 'Pre-revenue', acqPublicRepo: 'Public repository', acqWindows: 'Windows desktop', acqSnapshot: 'PROJECT SNAPSHOT', acqOverviewTitle: 'An existing codebase to build on', acqOverviewBody: 'Luna Guard is an on-demand Windows file scanner with a dashboard, local hash/IOC database, YARA, file analysis, and quarantine that verifies SHA-256 before restore. A limited-scope Android companion app is also available.', acqOverviewFeature1: 'On-demand Windows malware scanner', acqOverviewFeature2: 'YARA and threat-intelligence feeds', acqOverviewFeature3: 'File, archive, and quarantine workflows', acqOverviewFeature4: 'Companion app and multilingual website',
+    acqIncludedEyebrow: 'TRANSFER SCOPE', acqIncludedTitle: 'Assets in scope for discussion', acqIncludedIntro: 'These are existing project components. Any transfer depends on rights verification and a written agreement.', acqItemCode: 'Source code and apps', acqItemCodeBody: 'Windows app, Android companion source, dashboard, tests, and build/release workflows', acqItemDocs: 'Documentation and security notes', acqItemDocsBody: 'README, user guidance, published limitations, and development references', acqItemWeb: 'Website and content', acqItemWebBody: 'Luna Guard website, Security and Acquisition pages, and assets whose rights are verified', acqItemBrand: 'Brand and product assets', acqItemBrandBody: 'Name, logo, icons, and screenshots, subject to the seller confirming rights',
+    acqWhyEyebrow: 'WHY LUNA GUARD', acqWhyTitle: 'A foundation for its next owner', acqWhyBody: 'A buyer can evaluate the existing codebase and decide whether to continue development, commercialize it, or integrate it into another product.', acqWhy1: 'Existing product workflows', acqWhy2: 'Release automation and regression tests', acqWhy3: 'Website, documentation, and security disclosure page', acqTransparencyEyebrow: 'IMPORTANT TRANSPARENCY', acqTransparencyTitle: 'Scope and rights need verification', acqTransparencyBody: 'The project is pre-revenue and is not a replacement for Microsoft Defender or a full endpoint protection platform. The repositories currently have no LICENSE file; YARA rule licensing and the provenance of some assets need confirmation before transfer. Dependencies remain under their respective owners’ licenses, and threat-intelligence provider terms do not transfer automatically.', acqContactTitle: 'Interested in acquiring Luna Guard?', acqContactBody: 'Contact the maintainer through the GitHub profile to discuss scope, assets, and due diligence before an agreement.', acqScopeNote: 'This page expresses availability for acquisition discussions. It does not warrant rights or detection results; final scope must be stated in a written agreement.',
+    secEyebrow: 'SECURITY / TRANSPARENCY', secTitle: 'Security, built to be inspected.', secIntro: 'A practical overview of what Luna Guard checks, where its boundaries are, and how local data is handled. Details reflect the current desktop implementation and may change between releases.', secSource: 'Source security notes ↗', secBrief: 'SECURITY BRIEF', secScope: 'CURRENT SCOPE', secConsole1: 'On-demand detection', secDesktop: 'DESKTOP', secConsole2: 'Local-first scan data', secPrivacy: 'PRIVACY', secConsole3: 'Verified quarantine restore', secTransparencyLabel: 'TRANSPARENCY NOTES',
     secNavArchitecture: 'Detection Architecture', secNavIntel: 'Threat Intelligence', secNavArchives: 'Archive Protection', secNavQuarantine: 'Quarantine Security', secNavPrivacy: 'Privacy', secNavLimits: 'Limitations', secNavDisclosure: 'Security Disclosure',
     secArchitectureTitle: 'Detection Architecture', secArchitectureBody: 'Desktop scans run on demand. The pipeline uses local SHA-256, SHA-1 and MD5 lookups, configured YARA rules, file context (including entropy and bounded PE metadata when supported), and selected threat-feed indicators. Quick scan can also inspect selected process and memory/system signals. Each result includes evidence; risk scores are heuristic summaries, not probabilities.',
     secIntelTitle: 'Threat Intelligence', secIntelBody: 'Feed updates contact MalwareBazaar (including its recent detections feed), ThreatFox and URLhaus. File contents and scan history are not uploaded to those providers. The optional abuse.ch API key is stored locally and protected with Windows DPAPI for the current account; this does not protect against malware already running as that user. Network access is used when updating feeds.',
@@ -79,7 +87,7 @@ const copy = {
   },
   zh: {
     skip: '跳转到正文', brandTag: '看得见的安全防护', menu: '打开菜单',
-    navFeatures: '功能', navScans: '扫描模式', navTransparency: '使用限制', navSecurity: '安全', language: '语言', navDownload: '下载',
+    navFeatures: '功能', navScans: '扫描模式', navTransparency: '使用限制', navSecurity: '安全', navAcquisition: '项目收购', language: '语言', navDownload: '下载',
     heroEyebrow: '认识 LUNA GUARD', heroLead: '安全防护，', heroAccent: '清晰可见。',
     heroDescription: '按需运行的扫描工具，帮助您检查文件、理解检测结果，并自主决定后续操作。',
     heroPrimary: '下载 Luna Guard', heroSecondary: '查看源代码', heroNote: 'Windows 桌面版 · 按需扫描 · 不替代 Microsoft Defender',
@@ -106,7 +114,11 @@ const copy = {
     limit3: '无法读取、已加密或超出范围的文件会导致扫描不完整，不应视为安全。', limit4: '“未发现威胁”仅适用于已扫描范围，并不保证设备完全安全。', limitsLink: '阅读全部限制与详情',
     communityEyebrow: '关注项目动态', communityTitle: '与我们一起建设 Luna Guard。', communityBody: '查看源代码、关注更新，或加入社区交流。', communityDownload: '查看发行版', communityDiscord: '加入 Discord',
     footerDisclaimer: '按需扫描工具，不是实时防病毒软件。', footerSecurity: '安全',
-    secEyebrow: '安全 / 透明度', secTitle: '安全设计，经得起审查。', secIntro: '概述 Luna Guard 检查的内容、功能边界及本地数据处理方式。详情基于当前桌面版实现，可能随版本更新而变化。', secSource: '查看源代码安全说明 ↗',
+    statsEyebrow: '项目概览', statsTitle: '可验证的公开数据', statsLive: '来自 GitHub', statsStars: 'GitHub 星标', statsDownloads: '发行文件下载量', statsReleases: '已发布版本', statsContributors: 'GitHub 贡献者', statsNote: '数据来自 GitHub API，并在打开页面时更新。下载量包含所有发行文件，不代表独立用户数。', statsUsers: '活跃用户', statsNotTracked: '为保护隐私，不进行跟踪',
+    acqEyebrow: '项目可供收购', acqTitle: 'Luna Guard — 项目收购', acqIntro: '一个面向 Windows 的网络安全项目，包含现有代码、应用、文档和网站，可就收购事宜进行沟通。', acqContact: '通过 GitHub 联系卖家', acqGithub: '查看 GitHub', acqPreRevenue: '尚无收入', acqPublicRepo: '公开仓库', acqWindows: 'Windows 桌面版', acqSnapshot: '项目概览', acqOverviewTitle: '可继续开发的现有代码库', acqOverviewBody: 'Luna Guard 是一款按需运行的 Windows 文件扫描工具，包含 dashboard、本地 hash/IOC 数据库、YARA、文件分析，以及恢复前验证 SHA-256 的隔离功能。另有功能范围有限的 Android companion app。', acqOverviewFeature1: '按需运行的 Windows 恶意软件扫描器', acqOverviewFeature2: 'YARA 与威胁情报数据源', acqOverviewFeature3: '文件、压缩包和隔离工作流程', acqOverviewFeature4: '配套应用与多语言网站',
+    acqIncludedEyebrow: '转让范围', acqIncludedTitle: '可讨论的项目组成', acqIncludedIntro: '以下为现有项目组件；实际转让须完成权利核验并签订书面协议。', acqItemCode: '源代码与应用', acqItemCodeBody: 'Windows 应用、Android 配套源代码、dashboard、测试及构建/发布工作流', acqItemDocs: '文档与安全说明', acqItemDocsBody: 'README、用户指南、公开限制及开发参考资料', acqItemWeb: '网站与内容', acqItemWebBody: 'Luna Guard 网站、安全与收购页面，以及权利已核实的素材', acqItemBrand: '品牌与产品素材', acqItemBrandBody: '名称、徽标、图标和截图，须由卖家确认权利',
+    acqWhyEyebrow: '为何选择 LUNA GUARD', acqWhyTitle: '交给下一任所有者继续发展', acqWhyBody: '买方可以评估现有代码库，并决定继续开发、商业化，或集成到其他产品中。', acqWhy1: '已有产品工作流程', acqWhy2: '发布自动化与回归测试', acqWhy3: '网站、文档及安全披露页面', acqTransparencyEyebrow: '重要说明', acqTransparencyTitle: '转让范围与权利仍需核实', acqTransparencyBody: '项目目前尚无收入，不能替代 Microsoft Defender 或完整的终端防护平台。当前仓库没有 LICENSE 文件；转让前需确认 YARA 规则许可及部分素材来源。依赖仍受各自权利人的许可约束，威胁情报服务条款也不会自动转移。', acqContactTitle: '有意收购 Luna Guard？', acqContactBody: '请通过 GitHub 个人主页联系维护者，讨论项目范围、资产及签约前的尽职调查。', acqScopeNote: '本页面仅表示项目可供收购沟通，不构成权利或检测结果保证；最终范围应写入书面协议。',
+    secEyebrow: '安全 / 透明度', secTitle: '安全设计，经得起审查。', secIntro: '概述 Luna Guard 检查的内容、功能边界及本地数据处理方式。详情基于当前桌面版实现，可能随版本更新而变化。', secSource: '查看源代码安全说明 ↗', secBrief: '安全概览', secScope: '当前范围', secConsole1: '按需检测', secDesktop: '桌面端', secConsole2: '扫描数据优先保存在本地', secPrivacy: '隐私', secConsole3: '恢复前验证 SHA-256', secTransparencyLabel: '透明度说明',
     secNavArchitecture: '检测架构', secNavIntel: '威胁情报', secNavArchives: '压缩包防护', secNavQuarantine: '隔离安全', secNavPrivacy: '隐私', secNavLimits: '限制', secNavDisclosure: '安全问题披露',
     secArchitectureTitle: '检测架构', secArchitectureBody: '桌面版按需扫描。检测流程包括本地 SHA-256、SHA-1 和 MD5 查询、已配置的 YARA 规则、文件上下文（包括熵和支持时读取的受限 PE 元数据）及选定的威胁数据源指标。快速扫描还可检查部分进程、内存和系统信号。每项结果附有依据；风险评分是启发式摘要，并非概率。',
     secIntelTitle: '威胁情报', secIntelBody: '更新数据源时会连接 MalwareBazaar（包括近期检测源）、ThreatFox 和 URLhaus。不会向这些服务上传文件内容或扫描历史。可选的 abuse.ch API 密钥保存在本地，并通过当前账户的 Windows DPAPI 保护；无法防止同一账户下已运行的恶意软件。更新数据源时需要网络连接。',
@@ -138,6 +150,39 @@ try { savedLanguage = localStorage.getItem('luna-site-language') || 'th'; } catc
 applyLanguage(savedLanguage);
 languageSelect?.addEventListener('change', (event) => applyLanguage(event.target.value));
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
+
+// Use public GitHub counters; the checked-in values remain visible if the API is unavailable.
+const statNodes = document.querySelectorAll('[data-stat]');
+let latestPublicStats = null;
+function renderPublicStats(stats) {
+  if (!stats) return;
+  const locale = document.documentElement.lang || 'en';
+  document.querySelectorAll('[data-stat]').forEach((node) => {
+    const value = stats[node.dataset.stat];
+    if (Number.isFinite(value)) node.textContent = value.toLocaleString(locale);
+  });
+}
+if (statNodes.length) {
+  fetch('https://api.github.com/repos/Aomtana0070/Luna-Guard', { headers: { Accept: 'application/vnd.github+json' } })
+    .then(async (response) => {
+      if (!response.ok) throw new Error('GitHub repository metrics unavailable');
+      const repo = await response.json();
+      const [releasesResponse, contributorsResponse] = await Promise.all([
+        fetch(`${repo.url}/releases?per_page=100`, { headers: { Accept: 'application/vnd.github+json' } }),
+        fetch(`${repo.url}/contributors?per_page=100`, { headers: { Accept: 'application/vnd.github+json' } })
+      ]);
+      if (!releasesResponse.ok || !contributorsResponse.ok) throw new Error('GitHub project metrics unavailable');
+      const [releases, contributors] = await Promise.all([releasesResponse.json(), contributorsResponse.json()]);
+      latestPublicStats = {
+        stars: repo.stargazers_count,
+        downloads: releases.reduce((sum, release) => sum + (release.assets || []).reduce((assetSum, asset) => assetSum + (Number(asset.download_count) || 0), 0), 0),
+        releases: releases.length,
+        contributors: contributors.length
+      };
+      renderPublicStats(latestPublicStats);
+    })
+    .catch(() => { /* Keep the dated public snapshot in the HTML; linked GitHub pages remain available. */ });
+}
 
 document.querySelectorAll('[data-copy-sha]').forEach((button) => button.addEventListener('click', async () => {
   try {
@@ -348,7 +393,7 @@ if (pointerCanTilt && !prefersReducedMotion) {
 }
 
 const revealTargets = document.querySelectorAll(
-  '.hero-copy, .hero-art, .trust-inner, .section-heading, .feature-card, .scan-card, .tour-shot, .scan-footnote, .privacy-copy, .privacy-visual, .limits-panel, .community-card, .footer-inner'
+  '.hero-copy, .hero-art, .trust-inner, .stat-card, .section-heading, .feature-card, .scan-card, .tour-shot, .scan-footnote, .privacy-copy, .privacy-visual, .limits-panel, .community-card, .footer-inner, .acq-copy, .acq-dossier, .acq-metric, .acq-asset, .acq-why-copy, .acq-reasons, .acq-transparency-card, .acq-contact-card, .security-hero-copy, .security-console, .security-block'
 );
 
 if (revealTargets.length && !prefersReducedMotion && 'IntersectionObserver' in window) {
