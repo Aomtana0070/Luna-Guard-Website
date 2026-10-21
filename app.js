@@ -2,10 +2,11 @@ const copy = {
   th: {
     skip: 'ข้ามไปยังเนื้อหา', brandTag: 'ความปลอดภัยที่คุณมองเห็นได้', menu: 'เปิดเมนู',
     navFeatures: 'ความสามารถ', navScans: 'รูปแบบสแกน', navTransparency: 'ข้อจำกัด', navSecurity: 'ความปลอดภัย', navAcquisition: 'Acquisition', language: 'ภาษา', navDownload: 'ดาวน์โหลด',
-    heroEyebrow: 'INTRODUCING LUNA GUARD', heroLead: 'ความปลอดภัย', heroAccent: 'ที่มองเห็นได้',
-    heroDescription: 'เครื่องมือสแกนตามคำสั่ง ที่ช่วยให้คุณตรวจสอบไฟล์ ทำความเข้าใจผลตรวจ และจัดการสิ่งที่พบได้ด้วยตัวเอง',
-    heroPrimary: 'Download Luna Guard', heroSecondary: 'ดูซอร์สโค้ด', heroNote: 'Windows desktop · สแกนเมื่อคุณสั่ง · ไม่แทนที่ Microsoft Defender',
-    releasePlatform: 'Windows 10/11 • x64 • Public source', releaseVersionLabel: 'Release', copyHash: 'คัดลอก', tourEyebrow: 'INSIDE LUNA GUARD', tourTitle: 'เห็นขั้นตอนจริง ก่อนติดตั้ง', tourIntro: 'ภาพจากหน้าจอแอป พร้อมข้อมูลสาธิตเพื่อให้เห็นลำดับการทำงาน ไม่ใช่ผลตรวจจากเครื่องจริง', tourDashboard: 'Dashboard', tourScan: 'Scan', tourThreat: 'พบภัยคุกคาม', tourQuarantine: 'กักกัน', tourHistory: 'ประวัติ', tourDemo: 'ข้อมูลสาธิต',
+    heroEyebrow: 'เครื่องมือสแกนมัลแวร์ตามคำสั่งสำหรับ Windows',
+    heroDescription: 'เครื่องมือสแกนมัลแวร์ตามคำสั่งสำหรับผู้ใช้ Windows นักพัฒนา และนักวิจัยด้านความปลอดภัยที่ต้องการตรวจสอบไฟล์น่าสงสัย',
+    heroScope: 'สแกนไฟล์และ archive ที่รองรับ พร้อมตรวจระบบบางส่วนใน Quick scan', heroCapabilityHash: 'ข้อมูล Hash', heroCapabilityPe: 'วิเคราะห์ PE', heroCapabilityIntel: 'Threat intelligence',
+    heroPrimary: 'ดาวน์โหลดสำหรับ Windows', heroSecondary: 'ดูบน GitHub', heroNote: 'ไม่ใช่สิ่งทดแทน Microsoft Defender',
+    releasePlatform: 'Windows 10/11 • x64', releaseVersionLabel: 'Release', copyHash: 'คัดลอก', tourEyebrow: 'INSIDE LUNA GUARD', tourTitle: 'เห็นขั้นตอนจริง ก่อนติดตั้ง', tourIntro: 'ภาพจากหน้าจอแอป พร้อมข้อมูลสาธิตเพื่อให้เห็นลำดับการทำงาน ไม่ใช่ผลตรวจจากเครื่องจริง', tourDashboard: 'Dashboard', tourScan: 'Scan', tourThreat: 'พบภัยคุกคาม', tourQuarantine: 'กักกัน', tourHistory: 'ประวัติ', tourDemo: 'ข้อมูลสาธิต',
     illustrationOnDemand: 'ON-DEMAND', illustrationPipeline: 'DETECTION PIPELINE', illustrationTitle: 'ตรวจหลายชั้น อธิบายทุกผล',
     pipelineHash: 'ฐานข้อมูล Hash', pipelineLocal: 'LOCAL', pipelineYara: 'กฎ YARA', pipelineYaraSub: 'กฎที่จัดการได้และตรวจสอบได้', pipelineRules: 'RULES',
     pipelineFile: 'ข้อมูลไฟล์', pipelineFileSub: 'File entropy · PE details when supported', pipelineAnalyze: 'ANALYZE', pipelineIntel: 'Threat intelligence', pipelineFeeds: 'FEEDS',
@@ -45,10 +46,11 @@ const copy = {
   en: {
     skip: 'Skip to content', brandTag: 'Security you can see', menu: 'Open menu',
     navFeatures: 'Capabilities', navScans: 'Scan modes', navTransparency: 'Limitations', navSecurity: 'Security', navAcquisition: 'Acquisition', language: 'Language', navDownload: 'Downloads',
-    heroEyebrow: 'INTRODUCING LUNA GUARD', heroLead: 'Security,', heroAccent: 'made visible.',
-    heroDescription: 'An on-demand scanner that helps you inspect files, understand findings, and stay in control of what happens next.',
-    heroPrimary: 'Download Luna Guard', heroSecondary: 'Explore the source', heroNote: 'Windows desktop · Runs when you ask · Does not replace Microsoft Defender',
-    releasePlatform: 'Windows 10/11 • x64 • Public source', releaseVersionLabel: 'Release', copyHash: 'Copy', tourEyebrow: 'INSIDE LUNA GUARD', tourTitle: 'See the workflow before installing', tourIntro: 'Screenshots from the app with demonstration data. They illustrate the workflow and are not results from a real device.', tourDashboard: 'Dashboard', tourScan: 'Scan', tourThreat: 'Threat found', tourQuarantine: 'Quarantine', tourHistory: 'History', tourDemo: 'Demo data',
+    heroEyebrow: 'WINDOWS ON-DEMAND MALWARE SCANNER',
+    heroDescription: 'An on-demand malware scanner for Windows users, developers, and security researchers who need to inspect suspicious files.',
+    heroScope: 'Scan files and supported archives, with selected system checks in Quick scan.', heroCapabilityHash: 'Hash intelligence', heroCapabilityPe: 'PE analysis', heroCapabilityIntel: 'Threat intelligence',
+    heroPrimary: 'Download for Windows', heroSecondary: 'View on GitHub', heroNote: 'Not a replacement for Microsoft Defender.',
+    releasePlatform: 'Windows 10/11 • x64', releaseVersionLabel: 'Version', copyHash: 'Copy', tourEyebrow: 'INSIDE LUNA GUARD', tourTitle: 'See the workflow before installing', tourIntro: 'Screenshots from the app with demonstration data. They illustrate the workflow and are not results from a real device.', tourDashboard: 'Dashboard', tourScan: 'Scan', tourThreat: 'Threat found', tourQuarantine: 'Quarantine', tourHistory: 'History', tourDemo: 'Demo data',
     illustrationOnDemand: 'ON-DEMAND', illustrationPipeline: 'DETECTION PIPELINE', illustrationTitle: 'Layered checks. Clear reasons.',
     pipelineHash: 'Hash database', pipelineLocal: 'LOCAL', pipelineYara: 'YARA rules', pipelineYaraSub: 'Rules you can inspect and maintain', pipelineRules: 'RULES',
     pipelineFile: 'File intelligence', pipelineFileSub: 'File entropy · PE details when supported', pipelineAnalyze: 'ANALYZE', pipelineIntel: 'Threat intelligence', pipelineFeeds: 'FEEDS',
@@ -88,10 +90,11 @@ const copy = {
   zh: {
     skip: '跳转到正文', brandTag: '看得见的安全防护', menu: '打开菜单',
     navFeatures: '功能', navScans: '扫描模式', navTransparency: '使用限制', navSecurity: '安全', navAcquisition: '项目收购', language: '语言', navDownload: '下载',
-    heroEyebrow: '认识 LUNA GUARD', heroLead: '安全防护，', heroAccent: '清晰可见。',
-    heroDescription: '按需运行的扫描工具，帮助您检查文件、理解检测结果，并自主决定后续操作。',
-    heroPrimary: '下载 Luna Guard', heroSecondary: '查看源代码', heroNote: 'Windows 桌面版 · 按需扫描 · 不替代 Microsoft Defender',
-    releasePlatform: 'Windows 10/11 • x64 • 公开源码', releaseVersionLabel: '版本', copyHash: '复制', tourEyebrow: '应用界面', tourTitle: '安装前先了解扫描流程', tourIntro: '以下为应用界面截图，使用演示数据展示流程，并非真实设备的扫描结果。', tourDashboard: '仪表板', tourScan: '扫描', tourThreat: '发现威胁', tourQuarantine: '隔离', tourHistory: '历史记录', tourDemo: '演示数据',
+    heroEyebrow: 'Windows 按需恶意软件扫描器',
+    heroDescription: '面向 Windows 用户、开发者和安全研究人员的按需扫描工具，用于检查可疑文件。',
+    heroScope: '扫描文件和受支持的压缩包；快速扫描还会检查部分系统项目。', heroCapabilityHash: '哈希情报', heroCapabilityPe: 'PE 分析', heroCapabilityIntel: '威胁情报',
+    heroPrimary: '下载 Windows 版', heroSecondary: '在 GitHub 查看', heroNote: '不能替代 Microsoft Defender。',
+    releasePlatform: 'Windows 10/11 • x64', releaseVersionLabel: '版本', copyHash: '复制', tourEyebrow: '应用界面', tourTitle: '安装前先了解扫描流程', tourIntro: '以下为应用界面截图，使用演示数据展示流程，并非真实设备的扫描结果。', tourDashboard: '仪表板', tourScan: '扫描', tourThreat: '发现威胁', tourQuarantine: '隔离', tourHistory: '历史记录', tourDemo: '演示数据',
     illustrationOnDemand: '按需扫描', illustrationPipeline: '检测流程', illustrationTitle: '多层检查，说明每项结果。',
     pipelineHash: '哈希数据库', pipelineLocal: '本地', pipelineYara: 'YARA 规则', pipelineYaraSub: '规则可供查看和维护', pipelineRules: '规则',
     pipelineFile: '文件信息', pipelineFileSub: '文件熵 · 支持时读取 PE 信息', pipelineAnalyze: '分析', pipelineIntel: '威胁情报', pipelineFeeds: '数据源',
@@ -208,52 +211,11 @@ navigation?.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const pointerCanTilt = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-const visualViewport = window.visualViewport;
-const siteLoader = document.querySelector('[data-site-loader]');
-if (siteLoader) {
-  const syncLoaderViewport = () => {
-    if (!visualViewport) return;
-    siteLoader.style.left = `${visualViewport.offsetLeft}px`;
-    siteLoader.style.top = `${visualViewport.offsetTop}px`;
-    siteLoader.style.width = `${visualViewport.width}px`;
-    siteLoader.style.height = `${visualViewport.height}px`;
-  };
-  if (visualViewport) {
-    syncLoaderViewport();
-    visualViewport.addEventListener('resize', syncLoaderViewport);
-    visualViewport.addEventListener('scroll', syncLoaderViewport);
-  }
-  const loaderStartedAt = performance.now();
-  let loaderFinished = false;
-  const finishLoader = () => {
-    if (loaderFinished) return;
-    loaderFinished = true;
-    const minimumShowTime = prefersReducedMotion ? 0 : 1450;
-    const wait = Math.max(0, minimumShowTime - (performance.now() - loaderStartedAt));
-    window.setTimeout(() => {
-      document.documentElement.classList.remove('site-loading');
-      if (!prefersReducedMotion) document.documentElement.classList.add('site-entry-start');
-      siteLoader.classList.add('is-leaving');
-      window.setTimeout(() => {
-        visualViewport?.removeEventListener('resize', syncLoaderViewport);
-        visualViewport?.removeEventListener('scroll', syncLoaderViewport);
-        siteLoader.remove();
-      }, prefersReducedMotion ? 0 : 720);
-    }, wait);
-  };
-
-  if (prefersReducedMotion) {
-    finishLoader();
-  } else {
-    window.addEventListener('load', finishLoader, { once: true });
-    window.setTimeout(finishLoader, 5200);
-  }
-}
 const interactiveVisual = document.querySelector('[data-interactive-visual]');
 const tiltCard = document.querySelector('[data-tilt-card]');
 
 // The hero title reacts directly to the pointer instead of relying on a passive float.
-const heroTitle = document.querySelector('.hero h1');
+const heroTitle = document.querySelector('.hero h1:not(.hero-product-title)');
 if (heroTitle && pointerCanTilt && !prefersReducedMotion) {
   let titleFrame = 0;
   let rippleTimer;
