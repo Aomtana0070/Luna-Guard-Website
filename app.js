@@ -210,6 +210,32 @@ navigation?.querySelectorAll('a[href^="#"]').forEach((link) => {
 });
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const siteLoader = document.querySelector('[data-site-loader]');
+if (siteLoader) {
+  const loaderStartedAt = performance.now();
+  let loaderFinished = false;
+  const finishLoader = () => {
+    if (loaderFinished) return;
+    loaderFinished = true;
+    const minimumShowTime = prefersReducedMotion ? 0 : 1000;
+    const wait = Math.max(0, minimumShowTime - (performance.now() - loaderStartedAt));
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('site-loading');
+      if (!prefersReducedMotion) document.documentElement.classList.add('site-entry-start');
+      siteLoader.classList.add('is-leaving');
+      window.setTimeout(() => {
+        siteLoader.remove();
+        document.documentElement.classList.remove('site-entry-start');
+      }, prefersReducedMotion ? 0 : 640);
+    }, wait);
+  };
+
+  if (prefersReducedMotion) finishLoader();
+  else {
+    window.addEventListener('load', finishLoader, { once: true });
+    window.setTimeout(finishLoader, 5200);
+  }
+}
 const pointerCanTilt = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const interactiveVisual = document.querySelector('[data-interactive-visual]');
 const tiltCard = document.querySelector('[data-tilt-card]');
@@ -242,6 +268,7 @@ if (heroShaderCanvas) {
       uniform vec2 u_resolution;
       uniform vec2 u_pointer;
       uniform float u_time;
+      uniform float u_card_orb;
 
       float hash(vec2 p) {
         return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
@@ -250,8 +277,8 @@ if (heroShaderCanvas) {
       void main() {
         vec2 uv = (v_uv * 2.0 - 1.0);
         uv.x *= u_resolution.x / max(u_resolution.y, 1.0);
-        vec2 center = vec2(0.10, 0.02) + (u_pointer - 0.5) * 0.10;
-        vec2 p = (uv - center) / 0.78;
+        vec2 center = vec2(0.10, mix(0.02, 0.46, u_card_orb)) + (u_pointer - 0.5) * 0.10;
+        vec2 p = (uv - center) / mix(0.78, 0.30, u_card_orb);
         float radius = length(p);
         float inside = 1.0 - smoothstep(0.94, 1.01, radius);
         float z = sqrt(max(0.0, 1.0 - radius * radius));
@@ -314,6 +341,8 @@ if (heroShaderCanvas) {
       const resolution = gl.getUniformLocation(program, 'u_resolution');
       const pointer = gl.getUniformLocation(program, 'u_pointer');
       const time = gl.getUniformLocation(program, 'u_time');
+      const cardOrb = gl.getUniformLocation(program, 'u_card_orb');
+      const cardOrbMode = heroShaderCanvas.closest('.security-console, .acq-dossier') ? 1 : 0;
       let visible = false;
       let frame = 0;
       let lastFrame = 0;
@@ -337,6 +366,7 @@ if (heroShaderCanvas) {
         gl.uniform2f(resolution, heroShaderCanvas.width, heroShaderCanvas.height);
         gl.uniform2f(pointer, pointerX, pointerY);
         gl.uniform1f(time, now * 0.001);
+        gl.uniform1f(cardOrb, cardOrbMode);
         gl.clearColor(0, 0, 0, 0);
         gl.clear(gl.COLOR_BUFFER_BIT);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
@@ -383,12 +413,13 @@ if (heroShaderCanvas) {
         else { draw(performance.now()); start(); }
       });
 
-      interactiveVisual?.addEventListener('pointermove', (event) => {
+      const shaderPointerTarget = heroShaderCanvas.closest('[data-hover-light]') || interactiveVisual;
+      shaderPointerTarget?.addEventListener('pointermove', (event) => {
         const bounds = heroShaderCanvas.getBoundingClientRect();
         pointerX = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
         pointerY = Math.max(0, Math.min(1, 1 - (event.clientY - bounds.top) / bounds.height));
       }, { passive: true });
-      interactiveVisual?.addEventListener('pointerleave', () => {
+      shaderPointerTarget?.addEventListener('pointerleave', () => {
         pointerX = 0.5;
         pointerY = 0.5;
       }, { passive: true });

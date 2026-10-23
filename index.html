@@ -56,6 +56,7 @@
   }
   </script>
   <script>
+    document.documentElement.classList.add('js-enabled', 'site-loading');
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     const resetToTop = () => {
       if (location.hash) return;
@@ -66,6 +67,10 @@
       requestAnimationFrame(() => { root.style.scrollBehavior = previousBehavior; });
     };
     window.addEventListener('pageshow', resetToTop);
+    window.setTimeout(() => {
+      document.documentElement.classList.remove('site-loading');
+      document.querySelector('[data-site-loader]')?.remove();
+    }, 8000);
   </script>
   <title>Luna Guard — On-Demand Windows Malware Scanner</title>
   <link rel="icon" href="assets/Luna_Guard.ico" sizes="any">
@@ -76,6 +81,20 @@
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">ข้ามไปยังเนื้อหา</a>
   <div class="ambient" aria-hidden="true"></div>
+  <div class="site-loader" data-site-loader role="status" aria-live="polite" aria-label="Loading Luna Guard">
+    <div class="loader-content">
+      <div class="loader-emblem" aria-hidden="true">
+        <span class="loader-orbit loader-orbit-a"></span><span class="loader-orbit loader-orbit-b"></span>
+        <span class="loader-scan"></span><img src="assets/Luna_Guard.png" alt="" width="104" height="104">
+      </div>
+      <div class="loader-wordmark">LUNA <span>GUARD</span></div>
+      <p>SECURITY, MADE VISIBLE</p>
+      <div class="loader-progress" aria-hidden="true"><span></span></div>
+      <small>WINDOWS ON-DEMAND SCANNER</small>
+    </div>
+    <div class="loader-corner loader-corner-a" aria-hidden="true">LG / 01</div>
+    <div class="loader-corner loader-corner-b" aria-hidden="true">LOCAL · TRUSTED · CLEAR</div>
+  </div>
 
   <header class="site-header">
     <div class="header-inner">

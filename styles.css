@@ -692,7 +692,7 @@ h1, h2, h3 { text-wrap: pretty; transition: color 260ms ease, text-shadow 350ms 
   background: radial-gradient(ellipse at 50% 43%, rgba(42,79,121,.27), transparent 34rem), radial-gradient(ellipse at 50% 110%, rgba(88,58,177,.12), transparent 36rem), #05060f;
   opacity: 1;
   visibility: visible;
-  transition: opacity 620ms cubic-bezier(.3,0,.2,1), visibility 620ms, filter 620ms ease;
+  transition: opacity 360ms cubic-bezier(.3,0,.2,1), visibility 360ms, filter 360ms ease;
 }
 .js-enabled .site-loader::before {
   position: absolute;
@@ -1049,6 +1049,7 @@ body {
 .security-meta { align-items: center; }
 .security-meta > span { padding: 7px 10px; border: 1px solid rgba(186,215,247,.12); border-radius: 999px; background: rgba(186,214,247,.035); }
 .security-console { position: relative; isolation: isolate; min-height: 360px; padding: 24px; overflow: hidden; border-radius: 22px; box-shadow: inset 0 1px rgba(228,241,255,.13),0 26px 74px rgba(0,0,0,.3); }
+.security-console > .hero-shader-stage,.acq-dossier > .hero-shader-stage { inset: -8% -3%; opacity: .48; }
 .security-console::before { position: absolute; z-index: -1; inset: 0; content: ""; background: radial-gradient(ellipse at 76% 20%,rgba(117,173,219,.18),transparent 54%),linear-gradient(145deg,rgba(156,190,232,.065),transparent 57%); }
 .security-console-top { position: relative; display: flex; align-items: center; gap: 12px; }
 .console-mark { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(186,215,247,.16); border-radius: 13px; background: rgba(5,9,16,.45); }
@@ -1060,6 +1061,19 @@ body {
 .console-rule { height: 1px; margin: 19px 0; background: linear-gradient(90deg,rgba(186,215,247,.17),rgba(186,215,247,.02)); }
 .console-kicker { margin: 0 0 8px; color: #8bd8d0; }
 .console-row { position: relative; display: grid; grid-template-columns: 28px minmax(0,1fr) auto; align-items: center; gap: 9px; min-height: 55px; border-bottom: 1px solid rgba(186,215,247,.085); }
+.console-row::after,.dossier-row::after { position: absolute; z-index: 0; inset: 8px 0; border-radius: 8px; content: ""; pointer-events: none; background: linear-gradient(100deg,transparent 8%,rgba(129,220,218,.075) 48%,transparent 88%); opacity: 0; transform: translateX(-35%); animation: inspection-sweep 7.8s ease-in-out infinite; }
+.console-row:nth-child(5)::after,.dossier-row:nth-child(5)::after { animation-delay: .5s; }
+.console-row:nth-child(6)::after,.dossier-row:nth-child(6)::after { animation-delay: 2.9s; }
+.console-row:nth-child(7)::after,.dossier-row:nth-child(7)::after { animation-delay: 5.3s; }
+.console-row > *, .dossier-row > * { position: relative; z-index: 1; }
+[data-hover-light] > .hero-shader-stage { z-index: -2; }
+[data-hover-light] > .hero-shader-stage { position: absolute; }
+.brand-orb { position: absolute; z-index: 2; top: 27%; left: 50%; display: grid; place-items: center; width: clamp(108px,17vw,154px); aspect-ratio: 1; border: 1px solid rgba(184,224,255,.28); border-radius: 50%; background: radial-gradient(circle at 34% 27%,rgba(210,240,255,.3),transparent 22%),radial-gradient(circle at 50% 58%,rgba(52,107,165,.34),rgba(10,20,38,.82) 68%,rgba(7,12,23,.94)); box-shadow: inset 0 2px 10px rgba(227,245,255,.2),inset 0 -18px 28px rgba(3,8,18,.55),0 18px 42px rgba(10,25,48,.42),0 0 34px rgba(110,189,240,.2); transform: translate(-50%,-50%) rotateX(var(--card-tilt-x,0deg)) rotateY(var(--card-tilt-y,0deg)); transform-style: preserve-3d; animation: brand-orb-float 5s ease-in-out infinite; pointer-events: none; }
+.brand-orb::before,.brand-orb::after { position: absolute; inset: -8%; border: 1px solid rgba(127,215,225,.2); border-radius: 50%; content: ""; transform: rotateX(68deg) rotateZ(-22deg); box-shadow: 0 0 18px rgba(96,190,220,.09); }
+.brand-orb::after { inset: -15%; border-color: rgba(168,193,255,.12); transform: rotateX(68deg) rotateZ(34deg); }
+.brand-orb img { position: relative; z-index: 1; display: block; width: 48%; height: 48%; border: 1px solid rgba(205,232,255,.34); border-radius: 24%; object-fit: cover; box-shadow: 0 7px 18px rgba(0,0,0,.38),0 0 17px rgba(102,212,222,.3); transform: translateZ(18px); }
+@keyframes brand-orb-float { 0%,100% { margin-top: 0; } 50% { margin-top: -7px; } }
+.security-console > .security-console-top,.acq-dossier > .dossier-top { margin-top: 180px; }
 .console-row > span { color: #8292a9; font-size: 9px; }
 .console-row b { color: #d3e0ef; font-size: 11px; font-weight: 550; }
 .console-row > small { font-size: 7px; }
@@ -1091,12 +1105,15 @@ body {
 .disclosure-block { border-bottom: 1px solid rgba(186,215,247,.09); }
 .disclosure-block .button { margin-top: 24px; }
 @keyframes security-pulse { 50% { opacity: .45; box-shadow: 0 0 4px rgba(123,216,200,.18); } }
+@keyframes inspection-sweep { 0%,12% { opacity: 0; transform: translateX(-35%); } 22% { opacity: 1; } 42%,100% { opacity: 0; transform: translateX(35%); } }
 @keyframes security-orbit { to { transform: rotate(360deg); } }
 @media (max-width: 980px) { .security-hero { grid-template-columns: minmax(0,1fr) minmax(280px,.78fr); gap: 28px; min-height: 460px; } }
 @media (max-width: 700px), (hover:none) and (pointer:coarse) and (max-device-width:1100px) {
  .security-hero { grid-template-columns: minmax(0,1fr); gap: 27px; min-height: 0; padding-top: 54px; padding-bottom: 35px; }
  .security-hero h1 { font-size: clamp(39px,10vw,58px); }
  .security-console { min-height: 320px; padding: 20px; border-radius: 18px; }
+ .brand-orb { top: 25%; width: clamp(94px,29vw,126px); }
+ .security-console > .security-console-top,.acq-dossier > .dossier-top { margin-top: 158px; }
  .security-index { position: sticky; top: 76px; flex-wrap: nowrap; gap: 7px; margin-top: 0; padding: 9px; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: none; }
  .security-index::-webkit-scrollbar { display: none; }
  .security-index a { flex: 0 0 auto; padding: 8px 11px; font-size: 9px; }
@@ -1109,7 +1126,7 @@ body {
  .security-content { padding-top: 22px; padding-bottom: 65px; }
 }
 @media (prefers-reduced-motion: reduce) {
- .console-bottom i,.console-orbit,.security-orbit-two { animation: none !important; }
+ .console-bottom i,.console-orbit,.security-orbit-two,.console-row::after,.dossier-row::after,.brand-orb { animation: none !important; }
  .security-index a,.security-block,.security-list li { transition: none !important; }
  .has-reveal [data-reveal],.has-reveal [data-reveal].is-visible { opacity: 1 !important; filter: none !important; transform: none !important; transition: none !important; }
 }
