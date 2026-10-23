@@ -214,6 +214,192 @@ const pointerCanTilt = window.matchMedia('(hover: hover) and (pointer: fine)').m
 const interactiveVisual = document.querySelector('[data-interactive-visual]');
 const tiltCard = document.querySelector('[data-tilt-card]');
 
+// A small, dependency-free WebGL shader adds a dimensional light field behind
+// the HTML product illustration. The CSS glow remains visible if WebGL is absent.
+const heroShaderCanvas = document.querySelector('[data-hero-shader]');
+if (heroShaderCanvas) {
+  const gl = heroShaderCanvas.getContext('webgl', {
+    alpha: true,
+    antialias: false,
+    depth: false,
+    stencil: false,
+    powerPreference: 'low-power',
+    premultipliedAlpha: false
+  });
+
+  if (gl) {
+    const vertexSource = `
+      attribute vec2 a_position;
+      varying vec2 v_uv;
+      void main() {
+        v_uv = a_position * 0.5 + 0.5;
+        gl_Position = vec4(a_position, 0.0, 1.0);
+      }
+    `;
+    const fragmentSource = `
+      precision mediump float;
+      varying vec2 v_uv;
+      uniform vec2 u_resolution;
+      uniform vec2 u_pointer;
+      uniform float u_time;
+
+      float hash(vec2 p) {
+        return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
+      }
+
+      void main() {
+        vec2 uv = (v_uv * 2.0 - 1.0);
+        uv.x *= u_resolution.x / max(u_resolution.y, 1.0);
+        vec2 center = vec2(0.10, 0.02) + (u_pointer - 0.5) * 0.10;
+        vec2 p = (uv - center) / 0.78;
+        float radius = length(p);
+        float inside = 1.0 - smoothstep(0.94, 1.01, radius);
+        float z = sqrt(max(0.0, 1.0 - radius * radius));
+        vec3 normal = normalize(vec3(p, z));
+        vec3 light = normalize(vec3(-0.48, 0.62, 0.82));
+        float diffuse = max(dot(normal, light), 0.0);
+        float fresnel = pow(1.0 - max(normal.z, 0.0), 2.1);
+        float specular = pow(max(dot(reflect(-light, normal), vec3(0.0, 0.0, 1.0)), 0.0), 28.0);
+        float pulse = 0.5 + 0.5 * sin(u_time * 0.22);
+
+        vec3 deep = vec3(0.035, 0.075, 0.15);
+        vec3 blue = vec3(0.20, 0.43, 0.72);
+        vec3 teal = vec3(0.20, 0.72, 0.70);
+        vec3 color = mix(deep, blue, 0.22 + diffuse * 0.48);
+        color = mix(color, teal, fresnel * 0.52);
+        color += vec3(0.62, 0.82, 1.0) * specular * 0.62;
+
+        vec2 orbitPoint = vec2(p.x * 0.98, p.y * 0.33);
+        float orbitDistance = abs(length(orbitPoint) - 1.07);
+        float orbit = (1.0 - smoothstep(0.004, 0.017, orbitDistance)) * 0.20;
+        float halo = exp(-radius * 2.7) * 0.13;
+        float grain = (hash(floor(v_uv * u_resolution * 0.35)) - 0.5) * 0.012;
+        color += vec3(0.33, 0.70, 0.85) * (orbit + halo * (0.7 + pulse * 0.3));
+        color += grain;
+
+        float alpha = clamp(inside * 0.72 + orbit + halo, 0.0, 0.78);
+        gl_FragColor = vec4(color * alpha, alpha);
+      }
+    `;
+
+    const compileShader = (type, source) => {
+      const shader = gl.createShader(type);
+      if (!shader) return null;
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    };
+
+    const vertexShader = compileShader(gl.VERTEX_SHADER, vertexSource);
+    const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fragmentSource);
+    const program = gl.createProgram();
+    if (vertexShader && fragmentShader && program) {
+      gl.attachShader(program, vertexShader);
+      gl.attachShader(program, fragmentShader);
+      gl.linkProgram(program);
+    }
+
+    if (vertexShader && fragmentShader && program && gl.getProgramParameter(program, gl.LINK_STATUS)) {
+      const buffer = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1]), gl.STATIC_DRAW);
+      gl.useProgram(program);
+      const position = gl.getAttribLocation(program, 'a_position');
+      gl.enableVertexAttribArray(position);
+      gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
+      const resolution = gl.getUniformLocation(program, 'u_resolution');
+      const pointer = gl.getUniformLocation(program, 'u_pointer');
+      const time = gl.getUniformLocation(program, 'u_time');
+      let visible = false;
+      let frame = 0;
+      let lastFrame = 0;
+      let pointerX = 0.5;
+      let pointerY = 0.5;
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      const resize = () => {
+        const bounds = heroShaderCanvas.getBoundingClientRect();
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+        const width = Math.max(1, Math.round(bounds.width * dpr));
+        const height = Math.max(1, Math.round(bounds.height * dpr));
+        if (heroShaderCanvas.width === width && heroShaderCanvas.height === height) return;
+        heroShaderCanvas.width = width;
+        heroShaderCanvas.height = height;
+        gl.viewport(0, 0, width, height);
+      };
+
+      const draw = (now) => {
+        resize();
+        gl.uniform2f(resolution, heroShaderCanvas.width, heroShaderCanvas.height);
+        gl.uniform2f(pointer, pointerX, pointerY);
+        gl.uniform1f(time, now * 0.001);
+        gl.clearColor(0, 0, 0, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+      };
+
+      const stop = () => {
+        if (frame) cancelAnimationFrame(frame);
+        frame = 0;
+      };
+      const animate = (now) => {
+        frame = 0;
+        if (!visible || document.hidden || motionQuery.matches) return;
+        if (now - lastFrame >= 1000 / 30) {
+          draw(now);
+          lastFrame = now;
+        }
+        frame = requestAnimationFrame(animate);
+      };
+      const start = () => {
+        if (visible && !document.hidden && !motionQuery.matches && !frame) frame = requestAnimationFrame(animate);
+      };
+      const observer = 'IntersectionObserver' in window
+        ? new IntersectionObserver(([entry]) => {
+            visible = entry.isIntersecting;
+            if (visible) {
+              draw(performance.now());
+              start();
+            } else stop();
+          }, { threshold: 0.05 })
+        : null;
+
+      gl.clearColor(0, 0, 0, 0);
+      resize();
+      draw(0);
+      if (observer) observer.observe(heroShaderCanvas);
+      else { visible = true; start(); }
+      window.addEventListener('resize', resize, { passive: true });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden || motionQuery.matches) stop();
+        else { draw(performance.now()); start(); }
+      });
+      motionQuery.addEventListener?.('change', () => {
+        if (motionQuery.matches) stop();
+        else { draw(performance.now()); start(); }
+      });
+
+      interactiveVisual?.addEventListener('pointermove', (event) => {
+        const bounds = heroShaderCanvas.getBoundingClientRect();
+        pointerX = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+        pointerY = Math.max(0, Math.min(1, 1 - (event.clientY - bounds.top) / bounds.height));
+      }, { passive: true });
+      interactiveVisual?.addEventListener('pointerleave', () => {
+        pointerX = 0.5;
+        pointerY = 0.5;
+      }, { passive: true });
+    } else {
+      heroShaderCanvas.hidden = true;
+    }
+  } else {
+    heroShaderCanvas.hidden = true;
+  }
+}
+
 // The hero title reacts directly to the pointer instead of relying on a passive float.
 const heroTitle = document.querySelector('.hero h1:not(.hero-product-title)');
 if (heroTitle && pointerCanTilt && !prefersReducedMotion) {
